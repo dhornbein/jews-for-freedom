@@ -8,7 +8,128 @@
 	html {
 		@apply font-body;
 	}
+	.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6,
 	h1, h2, h3, h4, h5, h6 {
 		@apply font-heading;
 	}
+	.prose h1, h1 {
+		@apply uppercase text-6xl md:text-7xl;
+	}
+	.prose h2, h2 {
+		@apply text-5xl md:text-6xl;
+	}
+	.prose h3, h3 {
+		@apply text-4xl md:text-5xl;
+	}
+	.prose h4, h4 {
+		@apply text-3xl md:text-4xl;
+	}
+	.prose h5, h5 {
+		@apply text-2xl md:text-3xl;
+	}
+	.prose h6, h6 {
+		@apply text-xl md:text-2xl;
+	}
 }
+
+@layer components {
+	/* Base button styles */
+	.btn {
+		@apply inline-flex items-center text-center justify-center px-6 py-3 font-heading-normal font-bold no-underline text-base rounded-lg transition-all duration-200 ease-in-out cursor-pointer;
+		@apply focus:outline-none focus:ring-4 focus:ring-offset-2;
+		@apply disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+		@apply hover:transform hover:scale-105 active:scale-95 hover:cursor-pointer;
+	}
+
+	/* Primary button - uses brand primary color */
+	.btn-primary {
+		@apply bg-brand-primary text-white;
+		@apply hover:bg-brand-primary-dark;
+		@apply focus:ring-brand-primary-light;
+	}
+
+	/* Secondary button variations using brand colors */
+	.btn-secondary {
+		@apply bg-brand-blue text-white;
+		@apply hover:bg-brand-blue-dark;
+		@apply focus:ring-brand-blue-light;
+	}
+
+	.btn-green {
+		@apply bg-brand-green text-brand-dark;
+		@apply hover:bg-brand-green-dark hover:text-white;
+		@apply focus:ring-brand-green-light;
+	}
+
+	.btn-orange {
+		@apply bg-brand-orange text-white;
+		@apply hover:bg-brand-orange-dark;
+		@apply focus:ring-brand-orange-light;
+	}
+
+	.btn-pink {
+		@apply bg-brand-pink text-white;
+		@apply hover:bg-brand-pink-dark;
+		@apply focus:ring-brand-pink-light;
+	}
+
+	.btn-lavender {
+		@apply bg-brand-lavender text-white;
+		@apply hover:bg-brand-lavender-dark;
+		@apply focus:ring-brand-lavender-light;
+	}
+
+	/* Outline button variations */
+	.btn-outline-primary {
+		@apply bg-transparent border-2 border-brand-primary text-brand-primary;
+		@apply hover:bg-brand-primary hover:text-white;
+		@apply focus:ring-brand-primary-light;
+	}
+
+	.btn-outline-secondary {
+		@apply bg-transparent border-2 border-brand-blue text-brand-blue;
+		@apply hover:bg-brand-blue hover:text-white;
+		@apply focus:ring-brand-blue-light;
+	}
+
+	.btn-outline-dark {
+		@apply bg-transparent border-2 border-brand-dark text-brand-dark;
+		@apply hover:bg-brand-dark hover:text-white;
+		@apply focus:ring-brand-dark-light;
+	}
+
+	/* Ghost button - minimal style */
+	.btn-ghost {
+		@apply bg-transparent text-brand-primary;
+		@apply hover:bg-brand-background-dark;
+		@apply focus:ring-brand-primary-light;
+	}
+
+	/* Size variations */
+	.btn-sm {
+		@apply px-4 py-2 text-sm;
+	}
+
+	.btn-lg {
+		@apply px-8 py-4 text-lg;
+	}
+
+	.btn-xl {
+		@apply px-10 py-5 text-xl;
+	}
+
+	/* Full width button */
+	.btn-block {
+		@apply w-full;
+	}
+
+	/* Rounded variations */
+	.btn-rounded {
+		@apply rounded-full;
+	}
+
+	.btn-square {
+		@apply rounded-none;
+	}
+}
+
