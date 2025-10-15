@@ -24,8 +24,10 @@ interface PetitionEmbedProps {
   layout?: 'default' | 'full'
 }
 
+const config = useRuntimeConfig()
+
 const props = withDefaults(defineProps<PetitionEmbedProps>(), {
-  petitionUrl: 'https://actionnetwork.org/petitions/test-petition-352?source=direct_link&',
+  petitionUrl: config.public.petitionUrl as string,
   whitelabel: true,
   layout: 'default'
 })
