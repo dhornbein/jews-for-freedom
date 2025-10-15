@@ -5,6 +5,18 @@
   />
 </template>
 
+<style>
+#can_embed_form_inner h2 {
+  @apply font-heading text-5xl uppercase text-center;
+}
+#can_embed_form_inner h3 {
+  @apply text-3xl text-center border-brand-primary;
+}
+#can_embed_form_inner input[type="submit"] {
+  @apply to-brand-primary font-heading-normal font-bold text-2xl py-4 hover:bg-brand-primary-dark;
+}
+</style>
+
 <script setup lang="ts">
 interface PetitionEmbedProps {
   petitionUrl?: string
