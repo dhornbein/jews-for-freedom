@@ -9,14 +9,14 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/tailwindcss'
   ],
-  components: [{ path: '~/components', pathPrefix: false }],
   tailwindcss: {
     configPath: 'tailwind.config.ts'
   },
-  fonts: {
-    // Adobe Fonts Web Project ID from AGENTS.md
-    adobe: {
-      id: ['hdp3ciu']
+  app: {
+    head: {
+      link: [
+        { rel: 'stylesheet', href: 'https://use.typekit.net/hdp3ciu.css' }
+      ]
     }
-  },
+  }
 })

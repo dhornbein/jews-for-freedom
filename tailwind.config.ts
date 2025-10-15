@@ -66,11 +66,19 @@ const config: Config = {
       },
       fontFamily: {
         heading: [
-          'Roc Grotesk',
+          'roc-grotesk-compressed',
+          'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'
+        ],
+        'heading-wide': [
+          'roc-grotesk-wide',
+          'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'
+        ],
+        'heading-normal': [
+          'roc-grotesk',
           'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'
         ],
         body: [
-          'Museo Slab',
+          'museo-slab',
           'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'
         ],
       },
