@@ -116,3 +116,49 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 - ALWAYS use named functions when declaring methods, use arrow functions only for callbacks
 - ALWAYS prefer named exports over default exports
 - DO NOT manually import components, composables, utils, or Vue/Nuxt APIs - Nuxt 4 auto-imports them
+
+## TODO List
+
+### Critical Issues (Must Fix Before Deployment)
+
+- [x] **Enable SSG mode** - Add `nitro: { preset: 'static' }` to nuxt.config.ts and use `npm run generate` instead of `npm run build`
+- [x] **Remove better-sqlite3 dependency** - Delete from package.json to eliminate 1.7MB bundle bloat (Nuxt Content handles internally)
+- [x] **Create assets/css/tailwind.css** - Add file with proper @tailwind directives (base, components, utilities) ✅ Already exists with comprehensive styles
+- [x] **Add comprehensive Open Graph meta tags** - Create og-image.png (1200x630) and add full OG/Twitter Card meta
+- [x] **Fix broken legal page links** - Create /privacy and /terms pages or remove footer links temporarily
+- [x] **Move petition URL to runtime config** - Remove hardcoded test URL from PetitionEmbed component
+
+### Missing Spec Features
+
+- [ ] **Implement social share buttons** - Create ShareButtons component with Web Share API + fallback links with pre-filled text
+- [ ] **Add mobile navigation** - Create hamburger menu or properly integrate NavSmall into NavBar for mobile
+- [ ] **Get partner logos** - Obtain SVG/PNG assets and add to /public/partners/, update usePartners composable
+- [ ] **Define button utility classes** - Either add .btn .btn-primary etc. to Tailwind or refactor markdown to standard classes
+- [ ] **Add Action Network API integration** - Track signatures, show counter (beyond basic embed)
+- [ ] **Create template graphics for sharing** - Static OG image at minimum, dynamic generation as stretch goal
+
+### Code Quality Improvements
+
+- [ ] **Throttle NavBar scroll handler** - Use VueUse's useThrottleFn or lodash.throttle for performance
+- [ ] **Standardize color usage** - Use brand.* palette consistently, remove raw Tailwind colors like gray-400
+- [ ] **Restructure content files** - Move to /content/pages/ and /content/sections/ instead of flat structure
+- [ ] **Add component organization** - Create components/ui/ for primitives, components/sections/ for page sections
+- [ ] **Normalize composable patterns** - Pick consistent return type pattern (objects vs arrays)
+- [ ] **Add error boundaries** - Handle content loading failures properly instead of showing "Loading..." forever
+- [ ] **Add TypeScript types** - Type content queries, petition props, and other untyped areas
+
+### Testing & Documentation
+
+- [ ] **Setup Vitest** - Add test framework and configuration
+- [ ] **Write component tests** - Add smoke tests for NavBar, PetitionEmbed, SiteFooter
+- [ ] **Update README.md** - Replace default Nuxt starter content with project-specific docs
+- [ ] **Document deployment process** - Add deploy instructions for Netlify/Vercel
+
+### Nice to Have
+
+- [ ] **Add analytics** - Track petition views, shares, completion rates
+- [ ] **Implement signature counter** - Show total signatures if Action Network API permits
+- [ ] **Add newsletter signup** - Collect emails for ongoing engagement
+- [ ] **Create shareable graphics generator** - Dynamic OG images with customization (stretch goal)
+- [ ] **Add A11y improvements** - Audit with axe/Lighthouse, add skip links, ARIA labels
+- [ ] **Performance optimization** - Lazy load images, optimize font loading strategy
