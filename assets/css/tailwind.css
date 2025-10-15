@@ -13,7 +13,7 @@
 		@apply font-heading;
 	}
 	.prose h1, h1 {
-		@apply uppercase text-6xl md:text-7xl;
+		@apply uppercase text-6xl md:text-7xl border-b-2 border-brand-primary pb-2 mb-6;
 	}
 	.prose h2, h2 {
 		@apply text-5xl md:text-6xl;

@@ -1,8 +1,10 @@
 <template>
   <div>
     <!-- Hero / Introduction -->
-    <section id="hero" class="py-16 sm:py-24">
-      <div class="mx-auto max-w-5xl px-4">
+    <section id="hero">
+      <div class="mx-auto max-w-prose px-4 pb-16">
+        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto" />
+        <NavSmall class="my-12" />
         <article v-if="introduction" class="prose prose-neutral max-w-none">
           <ContentRenderer :value="introduction" />
         </article>
@@ -11,8 +13,9 @@
     </section>
 
     <!-- Statement -->
-    <section id="statement" class="py-16 sm:py-24">
-      <div class="mx-auto max-w-5xl px-4">
+    <section id="statement" class="py-16 sm:px-8 sm:py-24 bg-white/80 max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
+      <div class="mx-auto max-w-prose px-4">
+        <p class="text-sm text-gray-400 uppercase mb-4">Petition</p>
         <article v-if="statement" class="prose prose-neutral max-w-none">
           <ContentRenderer :value="statement" :data="{}" />
         </article>
@@ -27,8 +30,8 @@
 
 
     <!-- About -->
-    <section id="about" class="py-16 sm:py-24 bg-white/80">
-      <div class="mx-auto max-w-5xl px-4">
+    <section id="about" class="py-16 sm:py-24">
+      <div class="mx-auto max-w-prose px-4">
         <article v-if="aboutUs" class="prose prose-neutral max-w-none">
           <ContentRenderer :value="aboutUs" :data="{}" />
         </article>
@@ -38,8 +41,8 @@
 
     <!-- Partners -->
     <section id="partners" class="py-10 sm:py-16">
-      <div class="mx-auto max-w-5xl px-4">
-        <h2 class="font-heading text-2xl sm:text-3xl mb-6">Partner Organizations</h2>
+      <div class="mx-auto max-w-prose px-4">
+        <h2 class="font-heading mb-6">Partner Organizations</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
           <a v-for="partner in partners" :key="partner.name" :href="partner.href || '#'" class="group h-16 rounded bg-white/70 border border-brand-dark/10 flex items-center justify-center p-3 hover:border-brand-primary transition-colors" :aria-label="partner.name">
             <img v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-10 object-contain" />
@@ -51,8 +54,8 @@
 
     <!-- Share / How to Help -->
     <section id="share" class="py-16 sm:py-24">
-      <div class="mx-auto max-w-5xl px-4">
-        <h2 class="font-heading text-2xl sm:text-3xl mb-4">How to Help</h2>
+      <div class="mx-auto max-w-prose px-4">
+        <h2 class="font-heading mb-4">How to Help</h2>
         <ul class="list-disc pl-6 space-y-1">
           <li>Share this page on social media</li>
           <li>Invite friends by email or text</li>

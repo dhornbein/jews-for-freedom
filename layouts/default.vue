@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-brand-background text-brand-text">
+  <div class="min-h-screen bg-brand-background text-brand-text border-t-4 border-brand-primary">
     <NavBar />
     <main>
       <slot />

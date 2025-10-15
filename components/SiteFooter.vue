@@ -2,7 +2,11 @@
   <footer class="border-t border-brand-dark/10 bg-white/70 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 grid gap-8 md:grid-cols-3 text-sm text-brand-text">
       <div>
-        <p class="font-heading text-lg">Jews for Freedom</p>
+        <NuxtImg 
+          src="/logo-long.png" 
+          alt="Jews for Freedom" 
+          class="h-14"
+        />
         <p class="mt-2 text-brand-text/80">Mobilizing American Jews in defense of democratic values.</p>
       </div>
       <nav class="grid gap-2">

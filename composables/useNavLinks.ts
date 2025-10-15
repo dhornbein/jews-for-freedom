@@ -13,11 +13,10 @@ export function useNavLinks(): NavigationConfig {
   // Single source of truth for navigation links
   return {
     main: [
+      { label: 'Sign', href: '#petition' },
       { label: 'About', href: '#about' },
       { label: 'Partners', href: '#partners' },
-      { label: 'Statement', href: '#statement' },
-      { label: 'Sign', href: '#petition' },
-      { label: 'How to Help', href: '#share' }
+      { label: 'Share', href: '#share' }
     ],
     legal: [
       { label: 'Privacy Policy', href: '/privacy' },
