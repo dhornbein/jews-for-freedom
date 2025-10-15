@@ -17,11 +17,14 @@
           <ContentRenderer :value="statement" :data="{}" />
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
-        <div id="an-widget" class="rounded-lg border border-brand-dark/10 bg-white p-4 shadow-sm">
-          <PetitionEmbed />
-        </div>
+      </div>
+      <div id="petition" class="mx-auto max-w-3xl px-4 mt-12">
+        <PetitionEmbed 
+          whitelabel
+        />
       </div>
     </section>
+
 
     <!-- About -->
     <section id="about" class="py-16 sm:py-24 bg-white/80">
