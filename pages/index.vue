@@ -4,6 +4,7 @@
     <section id="hero">
       <div class="mx-auto max-w-prose px-4 pb-16">
         <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto" />
+        <p class="text-center text-lg mt-8">Mobilizing American Jews in defense of democratic values.</p>
         <NavSmall class="my-12" />
         <article v-if="introduction" class="prose prose-neutral max-w-none">
           <ContentRenderer :value="introduction" />
