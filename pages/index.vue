@@ -22,7 +22,7 @@
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
-      <div id="petition" class="mx-auto max-w-3xl px-4 mt-12">
+      <div id="petition" class="mx-auto max-w-3xl px-4 pt-16">
         <PetitionEmbed 
           whitelabel
         />
