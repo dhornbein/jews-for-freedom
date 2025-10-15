@@ -73,11 +73,30 @@ const { data: aboutUs } = await useAsyncData(() => queryCollection('content').pa
 const { data: statement } = await useAsyncData(() => queryCollection('content').path('/statement').first())
 const partners = usePartners()
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl || 'https://jewsforfreedom.org'
+
 useSeoMeta({
   title: 'Jews for Freedom',
   ogTitle: 'Jews for Freedom — Sign the Statement',
   description: 'Mobilizing American Jews in defense of democratic values. Sign your name and share with your networks.',
   ogDescription: 'Mobilizing American Jews in defense of democratic values. Sign your name and share with your networks.',
   ogType: 'website',
+  ogUrl: siteUrl,
+  ogImage: `${siteUrl}/og-image.png`,
+  ogImageWidth: '1200',
+  ogImageHeight: '630',
+  ogImageAlt: 'Jews for Freedom - Defending Democratic Values',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Jews for Freedom — Sign the Statement',
+  twitterDescription: 'Mobilizing American Jews in defense of democratic values. Sign your name and share with your networks.',
+  twitterImage: `${siteUrl}/og-image.png`,
+  twitterImageAlt: 'Jews for Freedom - Defending Democratic Values',
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: siteUrl }
+  ]
 })
 </script>
