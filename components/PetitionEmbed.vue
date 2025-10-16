@@ -1,8 +1,10 @@
 <template>
-  <div 
-    :id="`can-petition-area-${petitionSlug}`" 
+  <div
+    v-if="hasValidEmbed"
+    :id="`can-petition-area-${petitionSlug}`"
     v-bind="$attrs"
   />
+  <div v-else class="text-center py-16 text-2xl">There was an issue loading the petition, refresh to try again.</div>
 </template>
 
 <style>
@@ -24,19 +26,26 @@ interface PetitionEmbedProps {
   layout?: 'default' | 'full'
 }
 
-const config = useRuntimeConfig()
-
 const props = withDefaults(defineProps<PetitionEmbedProps>(), {
-  petitionUrl: config.public.petitionUrl as string,
   whitelabel: true,
   layout: 'default'
 })
 
+// petitionUrl default must not reference local variables inside defineProps; compute a runtime fallback instead
+const config = useRuntimeConfig()
+const petitionUrlResolved = computed(() => props.petitionUrl || (config.public.petitionUrl as string) || '')
+
 // Extract slug from URL (everything after /petitions/ before any ? or #)
 const petitionSlug = computed(() => {
-  const url = new URL(props.petitionUrl)
-  const match = url.pathname.match(/\/petitions\/([^/?#]+)/)
-  return match ? match[1] : 'unknown'
+  const value = petitionUrlResolved.value
+  if (!value) return 'unknown'
+  try {
+    const url = new URL(value)
+    const match = url.pathname.match(/\/petitions\/([^/?#]+)/)
+    return match ? match[1] : 'unknown'
+  } catch {
+    return 'unknown'
+  }
 })
 
 const stylesheetHref = computed(() => {
@@ -51,19 +60,26 @@ const scriptSrc = computed(() => {
   return `${base}${layoutParam}`
 })
 
-useHead({
-  link: [
-    {
-      rel: 'stylesheet',
-      href: stylesheetHref.value,
-      type: 'text/css'
-    }
-  ],
-  script: [
-    {
-      src: scriptSrc.value,
-      tagPosition: 'bodyClose'
-    }
-  ]
-})
+// Only render embed when we have a valid slug
+const hasValidEmbed = computed(() => petitionSlug.value !== 'unknown')
+
+useHead(() => ({
+  link: hasValidEmbed.value
+    ? [
+        {
+          rel: 'stylesheet',
+          href: stylesheetHref.value,
+          type: 'text/css'
+        }
+      ]
+    : [],
+  script: hasValidEmbed.value
+    ? [
+        {
+          src: scriptSrc.value,
+          tagPosition: 'bodyClose'
+        }
+      ]
+    : []
+}))
 </script>

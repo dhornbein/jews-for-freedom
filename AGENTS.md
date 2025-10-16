@@ -122,8 +122,6 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 ### Critical Issues (Must Fix Before Deployment)
 
 - [x] **Enable SSG mode** - Add `nitro: { preset: 'static' }` to nuxt.config.ts and use `npm run generate` instead of `npm run build`
-- [x] **Remove better-sqlite3 dependency** - Delete from package.json to eliminate 1.7MB bundle bloat (Nuxt Content handles internally)
-- [x] **Create assets/css/tailwind.css** - Add file with proper @tailwind directives (base, components, utilities) ✅ Already exists with comprehensive styles
 - [x] **Add comprehensive Open Graph meta tags** - Create og-image.png (1200x630) and add full OG/Twitter Card meta
 - [x] **Fix broken legal page links** - Create /privacy and /terms pages or remove footer links temporarily
 - [x] **Move petition URL to runtime config** - Remove hardcoded test URL from PetitionEmbed component
@@ -131,7 +129,6 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 ### Missing Spec Features
 
 - [ ] **Implement social share buttons** - Create ShareButtons component with Web Share API + fallback links with pre-filled text
-- [ ] **Add mobile navigation** - Create hamburger menu or properly integrate NavSmall into NavBar for mobile
 - [ ] **Get partner logos** - Obtain SVG/PNG assets and add to /public/partners/, update usePartners composable
 - [ ] **Define button utility classes** - Either add .btn .btn-primary etc. to Tailwind or refactor markdown to standard classes
 - [ ] **Add Action Network API integration** - Track signatures, show counter (beyond basic embed)
