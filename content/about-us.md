@@ -14,5 +14,5 @@ We are in a time of crisis. Now is the time to do something about it. This is wh
 - Enlisting and organizing a critical mass of Jews deeply engaging in a range of meaningful actions that have an impact in their communities and across the country.
 - Demonstrating for all to see a visible presence of Jews striving to secure our democratic future, through religious and civic action in our communities and earned media.
 
-If you represent an organization and want to join, learn more, or talk about working together, let us know here. [possible google form for orgs](#). If you have already signed up to our Call to Action, you will be hearing from us shortly.
+If you represent an organization and want to join, learn more, or talk about working together, [let us know here](#). If you have already signed up to our Call to Action, you will be hearing from us shortly.
 
