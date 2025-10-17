@@ -34,11 +34,10 @@
           <ContentRenderer :value="aboutUs" :data="{}" />
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
-        <h2 class="mt-16 mb-8" id="partners">Partners</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
-          <a v-for="partner in partners" :key="partner.name" :href="partner.href || '#'" class="group h-16 rounded bg-white/70 border border-brand-dark/10 flex items-center justify-center p-3 hover:border-brand-primary transition-colors" :aria-label="partner.name">
-            <img v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-10 object-contain" />
-            <span v-else class="text-brand-text/60 group-hover:text-brand-primary text-sm font-medium">{{ partner.name }}</span>
+        <h2 class="pt-16 mb-8" id="partners">Partners</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name">
+            <NuxtImg v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-80 w-full object-contain mx-auto saturate-0 hover:saturate-100" :class="partner.imgClass" />
           </a>
         </div>
       </div>
