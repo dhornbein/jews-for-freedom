@@ -1,6 +1,6 @@
 # Jews For Freedom Website
 
-A digital platform to mobilize American Jews in defense of democratic values through meaningful resistance to authoritarianism. This single-page static site serves as a landing page for petition signatures and social sharing.
+A digital platform to mobilize American Jews in defense of democratic values through meaningful resistance to authoritarianism. This single-page static site serves as a landing page for form signatures and social sharing.
 
 ## Project Overview
 
@@ -16,13 +16,13 @@ Single-page static site (Nuxt SSG) with jump-link navigation to sections
 
 ## Core Features
 
-### 1. Petition Integration (Primary Feature)
+### 1. Form Integration (Primary Feature)
 **Implementation**: Action Network Widget/API
 - Position as "Sign Your Name on This Statement"
-- Embed Action Network petition form
+- Embed Action Network form
 - Implementation options:
   - oEmbed widget (simplest): `https://actionnetwork.org/oembed/`
-  - API integration: `https://actionnetwork.org/docs/v2/petitions/`
+  - API integration: `https://actionnetwork.org/docs/v2/forms/`
 - All data and list management handled by Action Network
 - No backend required
 

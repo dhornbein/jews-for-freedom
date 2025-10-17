@@ -30,10 +30,8 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    petitionUrl: '',
-    siteUrl: '',
     public: {
-      petitionUrl: '',
+      formUrl: '',
       siteUrl: ''
     }
   }

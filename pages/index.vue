@@ -22,7 +22,7 @@
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
       <div id="embed" class="mx-auto max-w-3xl px-4 pt-8">
-        <PetitionEmbed whitelabel />
+        <FormEmbed />
       </div>
     </section>
 
@@ -59,6 +59,8 @@
 </template>
 
 <script setup lang="ts">
+import FormEmbed from '~/components/FormEmbed.vue'
+
 const { data: introduction } = await useAsyncData(() => queryCollection('content').path('/introduction').first())
 const { data: aboutUs } = await useAsyncData(() => queryCollection('content').path('/about-us').first())
 const { data: statement } = await useAsyncData(() => queryCollection('content').path('/statement').first())

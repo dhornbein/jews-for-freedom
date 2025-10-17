@@ -7,10 +7,10 @@
         <p class="text-sm text-brand-text/60">Last updated: October 15, 2025</p>
 
         <h2>Introduction</h2>
-        <p>Jews for Freedom ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and sign our petition.</p>
+        <p>Jews for Freedom ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and sign our form.</p>
 
         <h2>Information We Collect</h2>
-        <p>When you sign our petition through Action Network, we may collect:</p>
+        <p>When you sign our form through Action Network, we may collect:</p>
         <ul>
           <li>Personal identification information (name, email address, zip code)</li>
           <li>Information you choose to provide in comments or messages</li>
@@ -20,7 +20,7 @@
         <h2>How We Use Your Information</h2>
         <p>We use the information we collect to:</p>
         <ul>
-          <li>Process your petition signature</li>
+          <li>Process your form signature</li>
           <li>Send you updates about our campaign and related initiatives</li>
           <li>Improve our website and user experience</li>
           <li>Comply with legal obligations</li>
@@ -35,7 +35,7 @@
         </ul>
 
         <h2>Third-Party Services</h2>
-        <p>Our petition is powered by Action Network. When you sign, you are also subject to <a href="https://actionnetwork.org/privacy" target="_blank" rel="noopener noreferrer">Action Network's Privacy Policy</a>.</p>
+        <p>Our form is powered by Action Network. When you sign, you are also subject to <a href="https://actionnetwork.org/privacy" target="_blank" rel="noopener noreferrer">Action Network's Privacy Policy</a>.</p>
 
         <h2>Your Rights</h2>
         <p>You have the right to:</p>

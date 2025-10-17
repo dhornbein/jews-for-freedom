@@ -13,7 +13,7 @@ export function useNavLinks(): NavigationConfig {
   // Single source of truth for navigation links
   return {
     main: [
-      { label: 'Sign', href: '#petition' },
+      { label: 'Sign', href: '#statement' },
       { label: 'About', href: '#about' },
       { label: 'Partners', href: '#partners' },
       { label: 'Share', href: '#share' }
@@ -22,6 +22,6 @@ export function useNavLinks(): NavigationConfig {
       { label: 'Privacy Policy', href: '/privacy' },
       { label: 'Terms of Service', href: '/terms' }
     ],
-    cta: { label: 'Sign the Statement', href: '#petition' }
+    cta: { label: 'Sign the Statement', href: '#statement' }
   }
 }

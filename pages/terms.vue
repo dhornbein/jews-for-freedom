@@ -35,8 +35,8 @@
           <li>Collect or harvest information about users without consent</li>
         </ul>
 
-        <h2>Petition Signatures</h2>
-        <p>By signing the petition on our Site:</p>
+        <h2>Statement Signatures</h2>
+        <p>By signing the statement on our Site:</p>
         <ul>
           <li>You confirm that the information you provide is accurate and truthful</li>
           <li>You understand your signature may be shared with partner organizations</li>
