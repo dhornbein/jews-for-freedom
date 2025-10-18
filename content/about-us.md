@@ -2,8 +2,6 @@
 title: About Us
 ---
 
-# About Us
-
 Jews for Freedom is an initiative of Powered By Faith. [Link or description of PBF]. Our partners include Bend the Arc, Collaborative for Jewish Organizing, the Jewish Social Justice Roundtable, Jews United for Justice, and the Religious Action Center of Reform Judaism. Together we are responding to a call for faith communities in the U.S. to address the crisis of authoritarianism - and democracy - that we are all facing. 
 
 Many Jewish organizations and congregations are engaged in this work. We exist to collaborate and network with each other and other faith communities for maximum impact. Our hope is that many more will join us, ranging from other organizations to motivated individuals and everything - and everyone - in between.

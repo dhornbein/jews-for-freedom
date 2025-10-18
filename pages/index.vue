@@ -2,26 +2,29 @@
   <div>
     <!-- Hero / Introduction -->
     <section id="hero" class="border-t-4 border-brand-primary overflow-hidden">
-      <div class="pt-16 pb-8 bg-[url('/img/protest-crowd.png')] bg-blend-color-burn bg-brand-background bg-cover bg-bottom">
+      <div class="pt-16 pb-8 bg-[url('/img/protest-crowd.png')] bg-blend-color-burn bg-brand-background bg-cover bg-bottom border-b border-brand-background-dark">
         <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto" />
       </div>
       <NavSmall class="my-6" />
     </section>
 
-    <section id="introduction" class="pb-16 sm:pb-24 ">
-      <div class="mx-auto max-w-prose px-4 pb-16">
+    <section id="introduction" class="overflow-hidden">
+      <div class="mx-auto max-w-prose px-4">
         <article v-if="introduction" class="prose prose-neutral max-w-none">
           <h1>Join The Fight Against Authoritarianism</h1>
-          <ShapedImage src="/img/arm-poster.png" class="float-right -mr-8 sm:-mr-14  max-w-[40vw] max-h-[70vh]" />
+          <ShapedImage src="/img/arm-poster.png" class="float-right -mr-8 my-0 sm:-mr-14  max-w-[40vw] max-h-[70vh]" />
           <ContentRenderer :value="introduction" />
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
     </section>
 
+    <!-- Parallax Fists -->
+    <ParallaxFists class="h-48 -mb-4 z-0 w-full border-b border-brand-background-dark" />
+
     <!-- Statement -->
-    <section id="statement" class="py-16 sm:px-8 sm:py-24 bg-white/80 max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
-      <div class="mx-auto max-w-prose px-4">
+    <section id="statement" class="px-8 py-8 z-10 relative bg-white max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
+      <div class="mx-auto max-w-prose">
         <p class="text-sm text-gray-400 uppercase mb-4">Statement</p>
         <article v-if="statement" class="prose prose-neutral max-w-none">
           <ContentRenderer :value="statement" :data="{}" />
@@ -35,18 +38,20 @@
 
 
     <!-- About -->
-    <section id="about" class="py-16 sm:py-24">
+    <section id="about" class="py-16 sm:py-24 overflow-hidden">
       <div class="mx-auto max-w-prose px-4">
         <article v-if="aboutUs" class="prose prose-neutral prose-li:marker:text-brand-primary max-w-none">
+          <h1>About Us</h1>
+          <ShapedImage src="/img/not-now-when-poster.png" :threshold="0.4" class="float-right -mr-8 my-0 sm:-mr-14 max-w-[40vw] max-h-[70vh]" />
           <ContentRenderer :value="aboutUs" :data="{}" />
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
         <h2 class="pt-16 mb-8" id="partners">Partners</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name">
-            <NuxtImg v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-80 w-full object-contain mx-auto saturate-0 hover:saturate-100" :class="partner.imgClass" />
-          </a>
-        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 px-6 max-w-screen-xl mx-auto">
+        <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name">
+          <NuxtImg v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-80 w-full object-contain mx-auto saturate-0 hover:saturate-100" :class="partner.imgClass" />
+        </a>
       </div>
     </section>
 

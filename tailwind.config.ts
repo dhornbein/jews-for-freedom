@@ -45,7 +45,7 @@ const colors = {
   },
   background: {
     DEFAULT: '#f0e8d1',
-    light: '#f6f1e3',
+    light: '#fcf9ef',
     dark: '#ded3b5',
   }
 }
