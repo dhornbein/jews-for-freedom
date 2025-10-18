@@ -1,11 +1,18 @@
 <template>
   <div>
     <!-- Hero / Introduction -->
-    <section id="hero">
-      <div class="mx-auto max-w-prose px-4 pb-16">
+    <section id="hero" class="border-t-4 border-brand-primary overflow-hidden">
+      <div class="pt-16 pb-8 bg-[url('/img/protest-crowd.png')] bg-blend-color-burn bg-brand-background bg-cover bg-bottom">
         <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto" />
-        <NavSmall class="my-12" />
+      </div>
+      <NavSmall class="my-6" />
+    </section>
+
+    <section id="introduction" class="pb-16 sm:pb-24 ">
+      <div class="mx-auto max-w-prose px-4 pb-16">
         <article v-if="introduction" class="prose prose-neutral max-w-none">
+          <h1>Join The Fight Against Authoritarianism</h1>
+          <ShapedImage src="/img/arm-poster.png" class="float-right -mr-8 sm:-mr-14  max-w-[40vw] max-h-[70vh]" />
           <ContentRenderer :value="introduction" />
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
