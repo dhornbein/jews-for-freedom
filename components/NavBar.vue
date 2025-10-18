@@ -1,6 +1,6 @@
 <template>
   <header 
-    class="sticky top-0 z-50 bg-brand-background/80 backdrop-blur border-b border-brand-dark/10 transition-all duration-500 ease-out"
+    class="fixed top-0 left-0 right-0 z-50 bg-brand-background/80 backdrop-blur border-b border-brand-dark/10 transition-all duration-500 ease-out"
     :class="isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'"
   >
     <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex h-14 items-center justify-between">
