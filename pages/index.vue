@@ -58,12 +58,11 @@
     <!-- Share / How to Help -->
     <section id="share" class="py-16 sm:py-24">
       <div class="mx-auto max-w-prose px-4">
-        <h1 class="mb-4">Spread the Word</h1>
-        <ul class="list-disc pl-6 space-y-1">
-          <li>Share this page on social media</li>
-          <li>Invite friends by email or text</li>
-          <li>Use our toolkit for graphics and copy</li>
-        </ul>
+        <h1 class="mb-6">Spread the Word</h1>
+        <ShareButtons 
+          :long-text="statementText"
+          :url="siteUrl"
+        />
       </div>
     </section>
   </div>
@@ -78,7 +77,10 @@ const { data: statement } = await useAsyncData(() => queryCollection('content').
 const partners = usePartners()
 
 const config = useRuntimeConfig()
-const siteUrl = config.public.siteUrl || 'https://jewsforfreedom.org'
+const siteUrl = config.public.siteUrl || 'https://jewsforfreedom.com'
+
+// Get share text
+const { longText: statementText } = useShareText()
 
 useSeoMeta({
   title: 'Jews for Freedom',

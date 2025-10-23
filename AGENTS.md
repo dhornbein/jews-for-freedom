@@ -128,7 +128,7 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 
 ### Missing Spec Features
 
-- [ ] **Implement social share buttons** - Create ShareButtons component with Web Share API + fallback links with pre-filled text
+- [x] **Implement social share buttons** - Create ShareButtons component with Web Share API + fallback links with pre-filled text
 - [ ] **Get partner logos** - Obtain SVG/PNG assets and add to /public/partners/, update usePartners composable
 - [ ] **Define button utility classes** - Either add .btn .btn-primary etc. to Tailwind or refactor markdown to standard classes
 - [ ] **Add Action Network API integration** - Track signatures, show counter (beyond basic embed)
@@ -159,3 +159,19 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 - [ ] **Create shareable graphics generator** - Dynamic OG images with customization (stretch goal)
 - [ ] **Add A11y improvements** - Audit with axe/Lighthouse, add skip links, ARIA labels
 - [ ] **Performance optimization** - Lazy load images, optimize font loading strategy
+
+### Accessibility Improvements
+
+- [ ] **ShareButtons keyboard navigation** - Ensure all buttons are keyboard accessible with proper focus states
+- [ ] **Screen reader announcements** - Add ARIA live regions for copy confirmation and share actions
+- [ ] **Focus management** - Proper tab order and focus trap for modal states if added
+- [ ] **High contrast mode** - Test and ensure buttons are visible in high contrast modes
+- [ ] **Reduced motion** - Respect prefers-reduced-motion for button state transitions
+
+### Error Handling & Resilience
+
+- [ ] **Expand clipboard error handling** - Better user feedback when clipboard API fails
+- [ ] **Web Share API fallback UX** - Graceful degradation messaging when share fails
+- [ ] **Network error handling** - Handle cases where external share links are blocked
+- [ ] **Content loading failures** - Improve error boundaries for missing statement content
+- [ ] **Icon loading failures** - Add fallback text when icons fail to load
