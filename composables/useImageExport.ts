@@ -34,21 +34,22 @@ export function useImageExport() {
 
       const {
         filename = 'jews-for-freedom-share.jpg',
-        quality = 0.7,
+        quality = 0.95,
         width,
         height
       } = options
 
       // Export with specified dimensions
+      // Note: We skip fonts to avoid CORS issues with external font services
+      // The fonts will still render because they're already loaded in the browser
       const dataUrl = await toJpeg(element, {
         quality,
         width,
         height,
         pixelRatio: 2, // Higher resolution for better quality
-        style: {
-          // Ensure fonts are loaded
-          fontFamily: 'inherit'
-        }
+        skipFonts: true, // Skip embedding fonts to avoid CORS errors
+        cacheBust: true, // Prevent caching issues
+        preferredFontFormat: 'woff2' // Use modern font format
       })
 
       // Trigger download
