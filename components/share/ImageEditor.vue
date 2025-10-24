@@ -179,14 +179,14 @@
         
         <div 
           ref="canvasContainer"
-          class="flex bg-gray-100 p-4 rounded-lg"
+          class="flex justify-center bg-gray-100 p-4 rounded-lg"
           style="max-height: 90vh;"
         >
           <div 
             class="mx-auto"
             :style="{
               transform: `scale(${scale})`,
-              transformOrigin: 'left top'
+              transformOrigin: 'center top'
             }"
           >
             <!-- Canvas Component -->
