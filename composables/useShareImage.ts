@@ -1,5 +1,9 @@
 // Instance-based composable - creates a new reactive state for each editor instance
 
+// Import brand colors from Tailwind config
+import type { Ref } from 'vue'
+import { brandColors } from '../utils/brandColors'
+
 interface ShareImageSettings {
   template: 'bold' | 'minimal'
   size: {
@@ -19,6 +23,7 @@ interface ShareImageSettings {
     backgroundImage: string
     blendMode: string
     headlineText: string
+    bodyText: string
     ctaBackground: string
     ctaText: string
     accent: string
@@ -45,6 +50,17 @@ interface ColorOption {
 interface BlendModeOption {
   value: string
   label: string
+}
+
+interface ColorScheme {
+  name: string
+  color: string // The brand color identifier
+  background: string
+  headlineText: string
+  bodyText: string
+  ctaBackground: string
+  ctaText: string
+  accent: string
 }
 
 // Configuration for editor UI
@@ -85,6 +101,89 @@ const BLEND_MODE_OPTIONS: BlendModeOption[] = [
   { value: 'soft-light', label: 'Soft Light' }
 ]
 
+const COLOR_SCHEMES: ColorScheme[] = [
+  {
+    name: 'Primary Red',
+    color: brandColors.primary.DEFAULT,
+    background: brandColors.primary.DEFAULT,
+    headlineText: brandColors.white.DEFAULT,
+    bodyText: brandColors.tan.DEFAULT,
+    ctaBackground: brandColors.background.DEFAULT,
+    ctaText: brandColors.text.DEFAULT,
+    accent: brandColors.background.DEFAULT
+  },
+  {
+    name: 'Green',
+    color: brandColors.green.DEFAULT,
+    background: brandColors.green.DEFAULT,
+    headlineText: brandColors.tan.DEFAULT,
+    bodyText: brandColors.dark.DEFAULT,
+    ctaBackground: brandColors.dark.DEFAULT,
+    ctaText: brandColors.tan.DEFAULT,
+    accent: brandColors.dark.DEFAULT
+  },
+  {
+    name: 'Orange',
+    color: brandColors.orange.DEFAULT,
+    background: brandColors.orange.DEFAULT,
+    headlineText: brandColors.white.DEFAULT,
+    bodyText: brandColors.text.DEFAULT,
+    ctaBackground: brandColors.tan.DEFAULT,
+    ctaText: brandColors.text.DEFAULT,
+    accent: brandColors.text.DEFAULT
+  },
+  {
+    name: 'Pink',
+    color: brandColors.pink.DEFAULT,
+    background: brandColors.pink.DEFAULT,
+    headlineText: brandColors.white.DEFAULT,
+    bodyText: brandColors.tan.DEFAULT,
+    ctaBackground: brandColors.background.DEFAULT,
+    ctaText: brandColors.dark.DEFAULT,
+    accent: brandColors.background.DEFAULT
+  },
+  {
+    name: 'Blue',
+    color: brandColors.blue.DEFAULT,
+    background: brandColors.blue.DEFAULT,
+    headlineText: brandColors.white.DEFAULT,
+    bodyText: brandColors.tan.DEFAULT,
+    ctaBackground: brandColors.dark.DEFAULT,
+    ctaText: brandColors.white.DEFAULT,
+    accent: brandColors.dark.DEFAULT
+  },
+  {
+    name: 'Lavender',
+    color: brandColors.lavender.DEFAULT,
+    background: brandColors.lavender.DEFAULT,
+    headlineText: brandColors.white.DEFAULT,
+    bodyText: brandColors.text.DEFAULT,
+    ctaBackground: brandColors.text.DEFAULT,
+    ctaText: brandColors.white.DEFAULT,
+    accent: brandColors.text.DEFAULT
+  },
+  {
+    name: 'Dark',
+    color: brandColors.dark.DEFAULT,
+    background: brandColors.dark.DEFAULT,
+    headlineText: brandColors.background.DEFAULT,
+    bodyText: brandColors.tan.DEFAULT,
+    ctaBackground: brandColors.primary.DEFAULT,
+    ctaText: brandColors.dark.DEFAULT,
+    accent: brandColors.primary.DEFAULT
+  },
+  {
+    name: 'Light',
+    color: brandColors.background.DEFAULT,
+    background: brandColors.background.DEFAULT,
+    headlineText: brandColors.white.DEFAULT,
+    bodyText: brandColors.text.DEFAULT,
+    ctaBackground: brandColors.primary.DEFAULT,
+    ctaText: brandColors.background.DEFAULT,
+    accent: brandColors.primary.DEFAULT
+  }
+]
+
 interface ColorField {
   key: keyof ShareImageSettings['colors']
   label: string
@@ -93,6 +192,7 @@ interface ColorField {
 const COLOR_FIELDS: ColorField[] = [
   { key: 'background', label: 'Background' },
   { key: 'headlineText', label: 'Headline Text' },
+  { key: 'bodyText', label: 'Body Text' },
   { key: 'ctaBackground', label: 'CTA Button' },
   { key: 'ctaText', label: 'CTA Text' },
   { key: 'accent', label: 'Accent' }
@@ -124,13 +224,14 @@ export function useShareImage() {
       showQrCode: true
     },
     colors: {
-      background: '#c81f1d',
       backgroundImage: '/img/protest-crowd.png',
       blendMode: 'multiply',
-      headlineText: '#ffffff',
-      ctaBackground: '#f0e8d1',
-      ctaText: '#2f2e2b',
-      accent: '#9dc64e'
+      background: brandColors.primary.DEFAULT,
+      headlineText: brandColors.white.DEFAULT,
+      bodyText: brandColors.tan.DEFAULT,
+      ctaBackground: brandColors.background.DEFAULT,
+      ctaText: brandColors.text.DEFAULT,
+      accent: brandColors.background.DEFAULT
     }
   }
   
@@ -156,6 +257,15 @@ export function useShareImage() {
     settings.colors[field] = color
   }
 
+  function updateColorScheme(scheme: ColorScheme) {
+    settings.colors.background = scheme.background
+    settings.colors.headlineText = scheme.headlineText
+    settings.colors.bodyText = scheme.bodyText
+    settings.colors.ctaBackground = scheme.ctaBackground
+    settings.colors.ctaText = scheme.ctaText
+    settings.colors.accent = scheme.accent
+  }
+
   function updateContent(field: keyof ShareImageSettings['content'], value: string | boolean) {
     ;(settings.content as any)[field] = value
   }
@@ -172,6 +282,7 @@ export function useShareImage() {
     templateOptions: TEMPLATE_OPTIONS,
     sizeOptions: SIZE_OPTIONS,
     brandColors: BRAND_COLORS,
+    colorSchemes: COLOR_SCHEMES,
     blendModeOptions: BLEND_MODE_OPTIONS,
     colorFields: COLOR_FIELDS,
     
@@ -179,10 +290,12 @@ export function useShareImage() {
     updateTemplate,
     updateSize,
     updateColor,
+    updateColorScheme,
     updateContent,
     resetToDefaults
   }
 }
 
 // Type export for components
-export type { ShareImageSettings, TemplateOption, SizeOption, ColorOption, BlendModeOption, ColorField }
+export type UseShareImageReturn = ReturnType<typeof useShareImage>
+export type { ShareImageSettings, TemplateOption, SizeOption, ColorOption, BlendModeOption, ColorField, ColorScheme }

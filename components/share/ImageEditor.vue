@@ -97,33 +97,25 @@
           </label>
         </div>
 
-        <!-- Color Pickers -->
+        <!-- Color Scheme Selector -->
         <div>
-          <h3 class="text-lg font-semibold text-brand-text mb-3">Colors</h3>
-          
-          <div
-            v-for="field in editor.colorFields"
-            :key="field.key"
-            class="mb-4"
-          >
-            <label class="block text-sm font-medium text-brand-text mb-2">
-              {{ field.label }}
-            </label>
-            <div class="flex flex-wrap gap-2">
-              <button
-                v-for="color in editor.brandColors"
-                :key="`${field.key}-${color.value}`"
-                @click="editor.updateColor(field.key, color.value)"
-                :class="[
-                  'w-10 h-10 rounded-lg border-2 transition-all',
-                  editor.settings.colors[field.key] === color.value
-                    ? 'border-brand-text scale-110'
-                    : 'border-gray-300 hover:scale-105'
-                ]"
-                :style="{ backgroundColor: color.value }"
-                :title="color.name"
-              />
-            </div>
+          <h3 class="text-lg font-semibold text-brand-text mb-3">Color Scheme</h3>
+          <div class="flex flex-wrap gap-3">
+            <button
+              v-for="scheme in editor.colorSchemes"
+              :key="scheme.name"
+              @click="editor.updateColorScheme(scheme)"
+              :class="[
+                'w-16 h-16 rounded-lg border-4 transition-all flex items-center justify-center',
+                editor.settings.colors.background === scheme.background
+                  ? 'border-brand-text scale-110 shadow-lg'
+                  : 'border-gray-300 hover:scale-105'
+              ]"
+              :style="{ backgroundColor: scheme.color }"
+              :title="scheme.name"
+            >
+              <span class="sr-only">{{ scheme.name }}</span>
+            </button>
           </div>
         </div>
 
@@ -153,7 +145,7 @@
             :disabled="isExporting"
             class="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <Icon name="fa7-regular:download" class="text-xl" />
+            <Icon name="fa7-regular:file-image" class="text-xl" />
             <span>{{ isExporting ? 'Generating...' : 'Download JPG' }}</span>
           </button>
           
@@ -172,6 +164,21 @@
       <div class="bg-white p-8 rounded-lg shadow-lg sticky top-14">
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-xl font-semibold text-brand-text">Preview</h2>
+          <div class="flex gap-1">
+            <button
+                v-for="scheme in editor.colorSchemes"
+                :key="scheme.name"
+                @click="editor.updateColorScheme(scheme)"
+                :class="[
+                  'w-6 h-6 rounded-lg border-2 transition-all flex items-center justify-center',
+                  editor.settings.colors.background === scheme.background
+                    ? 'border-brand-text scale-110 shadow-lg'
+                    : 'border-gray-300 hover:scale-105'
+                ]"
+                :style="{ backgroundColor: scheme.color }"
+                :title="scheme.name"
+              ></button>
+          </div>
           <div class="text-sm text-brand-text/60">
             {{ editor.settings.size.width }} × {{ editor.settings.size.height }}px
           </div>
