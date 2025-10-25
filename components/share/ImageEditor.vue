@@ -73,17 +73,6 @@
           />
         </div>
 
-        <div>
-          <label class="block text-sm font-medium text-brand-text mb-2">
-            URL
-          </label>
-          <input
-            type="text"
-            v-model="editor.settings.content.url"
-            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent"
-          />
-        </div>
-
         <!-- QR Code Toggle -->
         <div class="flex items-center gap-3">
           <input
@@ -239,35 +228,50 @@ import QRCode from 'qrcode'
 // Create a new editor instance
 const editor = useShareImage()
 const { exportAsJpeg, isExporting } = useImageExport()
+const config = useRuntimeConfig()
 
 const canvasContainer = ref<HTMLElement>()
 const canvasElement = ref<HTMLElement>()
 const qrCodeDataUrl = ref<string>()
 const scale = ref(1)
 
-// Generate QR code when URL changes or QR code is toggled
+// Generate static QR code for site URL on mount
+onMounted(async () => {
+  if (editor.settings.content.showQrCode) {
+    await generateQRCode()
+  }
+  
+  calculateScale()
+  window.addEventListener('resize', calculateScale)
+})
+
+// Watch for QR code toggle and color changes
 watch(
-  () => [editor.settings.content.url, editor.settings.content.showQrCode],
-  async ([url, show]) => {
-    if (show && url) {
-      try {
-        qrCodeDataUrl.value = await QRCode.toDataURL(`https://${url}`, {
-          width: 200,
-          margin: 1,
-          color: {
-            dark: '#000000',
-            light: '#ffffff'
-          }
-        })
-      } catch (error) {
-        console.error('QR code generation failed:', error)
-      }
+  () => [editor.settings.content.showQrCode, editor.settings.colors.ctaBackground, editor.settings.colors.ctaText],
+  async ([show]) => {
+    if (show) {
+      await generateQRCode()
     } else {
       qrCodeDataUrl.value = undefined
     }
-  },
-  { immediate: true }
+  }
 )
+
+// Generate QR code with CTA colors
+async function generateQRCode() {
+  try {
+    qrCodeDataUrl.value = await QRCode.toDataURL(config.public.siteUrl, {
+      width: 200,
+      margin: 1,
+      color: {
+        dark: editor.settings.colors.ctaText,
+        light: editor.settings.colors.ctaBackground
+      }
+    })
+  } catch (error) {
+    console.error('QR code generation failed:', error)
+  }
+}
 
 // Calculate scale to fit canvas within container
 function calculateScale() {

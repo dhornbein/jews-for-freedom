@@ -97,35 +97,40 @@ const COLOR_FIELDS: ColorField[] = [
   { key: 'accent', label: 'Accent' }
 ]
 
-const DEFAULT_SETTINGS: ShareImageSettings = {
-  template: 'bold',
-  size: {
-    preset: 'square',
-    width: 1080,
-    height: 1080
-  },
-  content: {
-    headline: 'Stand Up Against Authoritarianism',
-    callToAction: 'Sign the Statement',
-    url: 'jewsforfreedom.com',
-    showQrCode: true
-  },
-  colors: {
-    background: '#c81f1d',
-    backgroundImage: '/img/protest-crowd.png',
-    blendMode: 'multiply',
-    headlineText: '#ffffff',
-    ctaBackground: '#f0e8d1',
-    ctaText: '#2f2e2b',
-    accent: '#9dc64e'
-  }
-}
-
 /**
  * Creates a new instance of share image state.
  * Each call creates an independent reactive state object.
  */
 export function useShareImage() {
+  const config = useRuntimeConfig()
+  
+  // Strip protocol from site URL for display
+  const displayUrl = config.public.siteUrl.replace(/^https?:\/\//, '')
+  
+  const DEFAULT_SETTINGS: ShareImageSettings = {
+    template: 'bold',
+    size: {
+      preset: 'square',
+      width: 1080,
+      height: 1080
+    },
+    content: {
+      headline: 'Stand Up Against Authoritarianism',
+      callToAction: 'Sign the Statement',
+      url: displayUrl,
+      showQrCode: true
+    },
+    colors: {
+      background: '#c81f1d',
+      backgroundImage: '/img/protest-crowd.png',
+      blendMode: 'multiply',
+      headlineText: '#ffffff',
+      ctaBackground: '#f0e8d1',
+      ctaText: '#2f2e2b',
+      accent: '#9dc64e'
+    }
+  }
+  
   // Create a new reactive instance for this editor
   const settings = reactive<ShareImageSettings>(JSON.parse(JSON.stringify(DEFAULT_SETTINGS)))
 

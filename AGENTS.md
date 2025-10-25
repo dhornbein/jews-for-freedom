@@ -143,6 +143,7 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 - [ ] **Normalize composable patterns** - Pick consistent return type pattern (objects vs arrays)
 - [ ] **Add error boundaries** - Handle content loading failures properly instead of showing "Loading..." forever
 - [ ] **Add TypeScript types** - Type content queries, petition props, and other untyped areas
+- [ ] **Refactor hardcoded strings** - Move static text to content files or constants, mainly OG text, titles, taglines, etc
 
 ### Testing & Documentation
 
