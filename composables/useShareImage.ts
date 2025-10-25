@@ -9,6 +9,7 @@ interface ShareImageSettings {
   }
   content: {
     headline: string
+    body?: string
     callToAction: string
     url: string
     showQrCode: boolean
@@ -103,6 +104,7 @@ const COLOR_FIELDS: ColorField[] = [
  */
 export function useShareImage() {
   const config = useRuntimeConfig()
+  const sharedText = useShareText()
   
   // Strip protocol from site URL for display
   const displayUrl = config.public.siteUrl.replace(/^https?:\/\//, '')
@@ -116,6 +118,7 @@ export function useShareImage() {
     },
     content: {
       headline: 'Stand Up Against Authoritarianism',
+      body: sharedText.longText,
       callToAction: 'Sign the Statement',
       url: displayUrl,
       showQrCode: true

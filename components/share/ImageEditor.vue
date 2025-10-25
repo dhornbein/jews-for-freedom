@@ -64,6 +64,17 @@
 
         <div>
           <label class="block text-sm font-medium text-brand-text mb-2">
+            Body Text
+          </label>
+          <textarea
+            v-model="editor.settings.content.body"
+            rows="3"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent resize-none"
+          ></textarea>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-brand-text mb-2">
             Call to Action
           </label>
           <input
@@ -204,6 +215,7 @@
                 :settings="editor.settings"
                 :qr-code-data-url="qrCodeDataUrl"
                 @update:headline="handleHeadlineEdit"
+                @update:body="handleBodyEdit"
                 @update:cta="handleCtaEdit"
               />
 
@@ -309,6 +321,10 @@ watch(
 
 function handleHeadlineEdit(value: string) {
   editor.settings.content.headline = value
+}
+
+function handleBodyEdit(value: string) {
+  editor.settings.content.body = value
 }
 
 function handleCtaEdit(value: string) {

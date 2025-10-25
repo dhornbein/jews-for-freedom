@@ -9,6 +9,20 @@
       />
     </div>
 
+    <!-- Body Text -->
+    <p
+      v-if="settings.content.body"
+      contenteditable="true"
+      @blur="handleBodyEdit"
+      class="text-4xl leading-relaxed my-4 outline-none p-4 font-bold"
+      :style="{
+        color: settings.colors.headlineText,
+        fontFamily: 'museo-slab, Georgia, serif',
+        backgroundColor: settings.colors.background 
+      }"
+      v-text="settings.content.body"
+    ></p>
+
     <!-- Headline -->
     <h1
       contenteditable="true"
@@ -67,12 +81,18 @@ defineProps<TemplateBoldProps>()
 
 const emit = defineEmits<{
   'update:headline': [value: string]
+  'update:body': [value: string]
   'update:cta': [value: string]
 }>()
 
 function handleHeadlineEdit(event: Event) {
   const target = event.target as HTMLElement
   emit('update:headline', target.textContent || '')
+}
+
+function handleBodyEdit(event: Event) {
+  const target = event.target as HTMLElement
+  emit('update:body', target.textContent || '')
 }
 
 function handleCtaEdit(event: Event) {
