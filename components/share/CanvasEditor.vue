@@ -104,7 +104,12 @@
       </div>
 
       <!-- Dropdown Panels -->
-      <div v-if="activeDropdown" class="border-t border-gray-200 bg-gray-50">
+      <div v-if="activeDropdown || editingField" class="border-t border-gray-200 bg-gray-50">
+        <!-- Text Editing Toolbar (teleport target) -->
+        <div v-if="editingField && !activeDropdown" class="px-4 py-3">
+          <div id="editing-toolbar-target" class="flex items-center gap-4"></div>
+        </div>
+
         <!-- Color Schemes Dropdown -->
         <div v-if="activeDropdown === 'colors'" class="px-4 py-3">
           <div class="flex flex-wrap gap-2">
@@ -176,12 +181,12 @@
     <!-- Canvas Preview Area -->
     <div 
       ref="canvasContainer"
-      class="flex-1 flex items-center justify-center overflow-hidden m-4"
+      class="flex-1 flex items-center justify-center overflow-hidden m-4 pl-20"
     >
       <!-- Canvas Component -->
       <div
         ref="canvasElement"
-        :class="['relative overflow-hidden', `size-${editor.settings.size.preset}`]"
+        :class="['relative', `size-${editor.settings.size.preset}`]"
         :style="{
           width: `${editor.settings.size.width}px`,
           height: `${editor.settings.size.height}px`,
@@ -238,6 +243,21 @@ const canvasContainer = ref<HTMLElement>()
 const qrCodeDataUrl = ref<string>()
 const scale = ref(1)
 const activeDropdown = ref<'colors' | 'background' | 'blend' | null>(null)
+const editingField = ref<'headline' | 'body' | 'callToAction' | null>(null)
+
+// Provide editing context for EditableText components
+provide('editingContext', {
+  editingField: readonly(editingField),
+  setEditingField: (field: string | null) => {
+    editingField.value = field as any
+    // Close dropdown when editing text
+    if (field) {
+      activeDropdown.value = null
+    }
+  },
+  getFieldSize: (field: string) => getFieldSize(field),
+  updateFieldSize: (field: string, size: number) => updateFieldSize(field, size)
+})
 
 // Generate QR code on mount
 onMounted(async () => {
@@ -312,6 +332,10 @@ function calculateScale() {
 
 function toggleDropdown(dropdown: 'colors' | 'background' | 'blend') {
   activeDropdown.value = activeDropdown.value === dropdown ? null : dropdown
+  // Clear editing field when opening a dropdown
+  if (activeDropdown.value) {
+    editingField.value = null
+  }
 }
 
 function handleSizeClick(preset: 'square' | 'landscape' | 'portrait') {
@@ -328,6 +352,54 @@ function handleBackgroundImageClick(preset: BackgroundImagePreset) {
 
 function handleBlendModeClick(mode: string) {
   editor.settings.colors.blendMode = mode
+}
+
+// Text editing helper functions
+function getFieldSize(field: string): number {
+  switch (field) {
+    case 'headline': return editor.settings.content.headlineSize
+    case 'body': return editor.settings.content.bodySize
+    case 'callToAction': return editor.settings.content.callToActionSize
+    default: return 24
+  }
+}
+
+function updateFieldSize(field: string, size: number) {
+  switch (field) {
+    case 'headline':
+      editor.settings.content.headlineSize = size
+      break
+    case 'body':
+      editor.settings.content.bodySize = size
+      break
+    case 'callToAction':
+      editor.settings.content.callToActionSize = size
+      break
+  }
+}
+
+function getFieldSizeRange(field: string): { min: number; max: number } {
+  switch (field) {
+    case 'headline': return { min: 24, max: 120 }
+    case 'body': return { min: 12, max: 48 }
+    case 'callToAction': return { min: 16, max: 72 }
+    default: return { min: 12, max: 72 }
+  }
+}
+
+function clearField(field: string) {
+  switch (field) {
+    case 'headline':
+      editor.settings.content.headline = ''
+      break
+    case 'body':
+      editor.settings.content.body = ''
+      break
+    case 'callToAction':
+      editor.settings.content.callToAction = ''
+      break
+  }
+  editingField.value = null
 }
 
 function handleHeadlineEdit(value: string) {

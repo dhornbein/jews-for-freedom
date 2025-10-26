@@ -61,6 +61,13 @@ export function useImageExport() {
         // Ensure it doesn't try to auto-parse fonts (we provide our own CSS)
         skipFonts: false,
         includeQueryParams: false,
+        // Filter function to exclude elements with export-exclude class
+        filter: (node) => {
+          if (node instanceof Element) {
+            return !node.classList.contains('export-exclude')
+          }
+          return true
+        }
       })
 
       // Trigger download
