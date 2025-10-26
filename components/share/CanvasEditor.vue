@@ -9,10 +9,8 @@
           :key="option.value"
           @click="handleSizeClick(option.value)"
           :class="[
-            'px-3 py-1.5 text-xs font-medium rounded transition-colors',
-            editor.settings.size.preset === option.value
-              ? 'bg-brand-primary text-white'
-              : 'bg-gray-100 text-brand-text hover:bg-gray-200'
+            'control-btn',
+            editor.settings.size.preset === option.value ? 'control-btn-active' : ''
           ]"
         >
           {{ option.label }}
@@ -24,10 +22,8 @@
         <button
           @click="toggleDropdown('colors')"
           :class="[
-            'px-3 py-1.5 text-xs font-medium rounded transition-colors flex items-center gap-2',
-            activeDropdown === 'colors'
-              ? 'bg-brand-primary text-white'
-              : 'bg-gray-100 text-brand-text hover:bg-gray-200'
+            'control-btn flex items-center gap-2',
+            activeDropdown === 'colors' ? 'control-btn-active' : ''
           ]"
         >
           <div 
@@ -41,10 +37,8 @@
         <button
           @click="toggleDropdown('background')"
           :class="[
-            'px-3 py-1.5 text-xs font-medium rounded transition-colors',
-            activeDropdown === 'background'
-              ? 'bg-brand-primary text-white'
-              : 'bg-gray-100 text-brand-text hover:bg-gray-200'
+            'control-btn',
+            activeDropdown === 'background' ? 'control-btn-active' : ''
           ]"
         >
           Background
@@ -55,10 +49,8 @@
           v-if="editor.settings.colors.backgroundImage"
           @click="toggleDropdown('blend')"
           :class="[
-            'px-3 py-1.5 text-xs font-medium rounded transition-colors',
-            activeDropdown === 'blend'
-              ? 'bg-brand-primary text-white'
-              : 'bg-gray-100 text-brand-text hover:bg-gray-200'
+            'control-btn',
+            activeDropdown === 'blend' ? 'control-btn-active' : ''
           ]"
         >
           Blend: {{ editor.settings.colors.blendMode }}
@@ -83,10 +75,8 @@
             :key="option.value"
             @click="editor.updateTemplate(option.value)"
             :class="[
-              'px-3 py-1.5 text-xs font-medium rounded transition-colors',
-              editor.settings.template === option.value
-                ? 'bg-brand-primary text-white'
-                : 'bg-gray-100 text-brand-text hover:bg-gray-200'
+              'control-btn',
+              editor.settings.template === option.value ? 'control-btn-active' : ''
             ]"
           >
             {{ option.label }}
@@ -430,3 +420,16 @@ async function handleDownload() {
   })
 }
 </script>
+
+<style scoped>
+.control-btn {
+  @apply px-3 py-1.5 text-xs font-medium rounded transition-colors;
+  @apply bg-transparent border border-gray-300 text-brand-text;
+  @apply hover:border-gray-400 hover:bg-gray-50;
+}
+
+.control-btn-active {
+  @apply border-brand-primary text-brand-primary;
+  @apply bg-transparent;
+}
+</style>
