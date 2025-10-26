@@ -17,7 +17,6 @@
       class="text-4xl leading-relaxed my-4 outline-none p-4 font-bold border-l-4 border-solid"
       :style="{
         color: settings.colors.bodyText,
-        fontFamily: 'museo-slab, Georgia, serif',
         backgroundColor: settings.colors.background,
         borderColor: settings.colors.accent
       }"
@@ -28,10 +27,9 @@
     <h1
       contenteditable="true"
       @blur="handleHeadlineEdit"
-      class="text-6xl font-bold leading-tight mb-8 outline-none border-b-4"
+      class="text-7xl font-bold leading-tight mb-8 outline-none border-b-4"
       :style="{
         color: settings.colors.headlineText,
-        fontFamily: 'roc-grotesk-compressed, Impact, sans-serif',
         borderColor: settings.colors.accent,
         textShadow: `2px 2px 0 rgb(0 0 0 / 0.75)`
       }"
@@ -44,11 +42,10 @@
       <div
         contenteditable="true"
         @blur="handleCtaEdit"
-        class="px-8 py-4 font-bold text-2xl rounded-lg outline-none"
+        class="px-8 py-4 font-bold text-3xl rounded-lg outline-none font-heading-normal"
         :style="{
           backgroundColor: settings.colors.ctaBackground,
           color: settings.colors.ctaText,
-          fontFamily: 'roc-grotesk-wide, Impact, sans-serif'
         }"
         v-text="settings.content.callToAction"
       ></div>

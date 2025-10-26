@@ -1,4 +1,5 @@
 import { toJpeg } from 'html-to-image'
+import { getFontEmbedCSS } from '~/utils/fontEmbedCss'
 
 interface ExportOptions {
   filename?: string
@@ -24,13 +25,21 @@ export function useImageExport() {
     exportError.value = null
 
     try {
-      // Wait for fonts to load
+      // Wait for fonts to load (best-effort)
       if (document.fonts) {
         await document.fonts.ready
       }
 
-      // Small delay to ensure everything is rendered
-      await new Promise(resolve => setTimeout(resolve, 100))
+      // Build base64-embedded font CSS to avoid stylesheet parsing bugs (esp. Firefox)
+      let embeddedCSS = ''
+      try {
+        embeddedCSS = await getFontEmbedCSS()
+      } catch {
+        // Fallback: proceed without embedded CSS
+      }
+
+      // Small delay to ensure any pending layout before capture
+      await new Promise(resolve => setTimeout(resolve, 20))
 
       const {
         filename = 'jews-for-freedom-share.jpg',
@@ -39,17 +48,19 @@ export function useImageExport() {
         height
       } = options
 
-      // Export with specified dimensions
-      // Note: We skip fonts to avoid CORS issues with external font services
-      // The fonts will still render because they're already loaded in the browser
+      // Export with specified dimensions and embedded fonts
       const dataUrl = await toJpeg(element, {
         quality,
         width,
         height,
-        pixelRatio: 2, // Higher resolution for better quality
-        skipFonts: true, // Skip embedding fonts to avoid CORS errors
-        cacheBust: true, // Prevent caching issues
-        preferredFontFormat: 'woff2' // Use modern font format
+        pixelRatio: 1,
+        cacheBust: true,
+        // When provided, html-to-image skips parsing stylesheets for @font-face and uses this instead
+        fontEmbedCSS: embeddedCSS || undefined,
+        preferredFontFormat: 'woff2',
+        // Ensure it doesn't try to auto-parse fonts (we provide our own CSS)
+        skipFonts: false,
+        includeQueryParams: false,
       })
 
       // Trigger download
@@ -57,10 +68,7 @@ export function useImageExport() {
       link.download = filename
       link.href = dataUrl
       link.click()
-
-      console.log('Image exported successfully')
     } catch (error) {
-      console.error('Export failed:', error)
       exportError.value = error instanceof Error ? error.message : 'Export failed'
     } finally {
       isExporting.value = false

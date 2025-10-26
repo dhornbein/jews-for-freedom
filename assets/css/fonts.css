@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'museo-slab';
+  src: url('/fonts/museo-slab-500.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'roc-grotesk';
+  src: url('/fonts/roc-grotesk-regular.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'roc-grotesk-compressed';
+  src: url('/fonts/roc-grotesk-compressed-bold.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'roc-grotesk-wide';
+  src: url('/fonts/roc-grotesk-wide-bold.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}

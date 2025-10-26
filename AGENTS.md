@@ -116,6 +116,7 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 - ALWAYS use named functions when declaring methods, use arrow functions only for callbacks
 - ALWAYS prefer named exports over default exports
 - DO NOT manually import components, composables, utils, or Vue/Nuxt APIs - Nuxt 4 auto-imports them
+- You do not need to `cd` into the project folder, vscode automatically opens the correct root
 
 ## TODO List
 
