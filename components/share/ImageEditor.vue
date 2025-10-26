@@ -52,9 +52,17 @@
 
         <!-- Content Fields -->
         <div>
-          <label class="block text-sm font-medium text-brand-text mb-2">
-            Headline
-          </label>
+          <div class="flex justify-between">
+            <label class="block text-sm font-medium text-brand-text mb-2">
+              Headline
+            </label>
+            <button
+              class="text-sm text-brand-primary hover:text-brand-primary-dark"
+              @click="editor.settings.content.headline = ''"
+            >
+              Clear
+            </button>
+          </div>
           <input
             type="text"
             v-model="editor.settings.content.headline"
@@ -63,9 +71,17 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-brand-text mb-2">
-            Body Text
-          </label>
+          <div class="flex justify-between">
+            <label class="block text-sm font-medium text-brand-text mb-2">
+              Body Text
+            </label>
+            <button
+              class="text-sm text-brand-primary hover:text-brand-primary-dark"
+              @click="editor.settings.content.body = ''"
+            >
+              Clear
+            </button>
+          </div>
           <textarea
             v-model="editor.settings.content.body"
             rows="3"
@@ -74,9 +90,17 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-brand-text mb-2">
-            Call to Action
-          </label>
+          <div class="flex justify-between">
+            <label class="block text-sm font-medium text-brand-text mb-2">
+              Call to Action
+            </label>
+            <button
+              class="text-sm text-brand-primary hover:text-brand-primary-dark"
+              @click="editor.settings.content.callToAction = ''"
+            >
+              Clear
+            </button>
+          </div>
           <input
             type="text"
             v-model="editor.settings.content.callToAction"
@@ -115,6 +139,33 @@
               :title="scheme.name"
             >
               <span class="sr-only">{{ scheme.name }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Background Image Selector -->
+        <div>
+          <h3 class="text-lg font-semibold text-brand-text mb-3">Background Image</h3>
+          <div class="flex flex-wrap gap-3">
+            <button
+              v-for="preset in editor.backgroundImagePresets"
+              :key="preset.name"
+              @click="editor.updateBackgroundImage(preset)"
+              :class="[
+                'w-16 h-16 rounded-lg border-4 transition-all flex items-center justify-center overflow-hidden',
+                editor.settings.colors.backgroundImage?.url === preset.settings.url
+                  ? 'border-brand-text scale-110 shadow-lg'
+                  : 'border-gray-300 hover:scale-105'
+              ]"
+              :title="preset.name"
+            >
+              <span v-if="!preset.thumbnail" class="text-2xl text-gray-400">∅</span>
+              <img
+                v-else
+                :src="preset.thumbnail"
+                :alt="preset.name"
+                class="w-full h-full object-cover"
+              />
             </button>
           </div>
         </div>
@@ -200,6 +251,7 @@
             <div
               ref="canvasElement"
               class="relative overflow-hidden"
+              :class="`size-${editor.settings.size.preset}`"
               :style="{
                 width: `${editor.settings.size.width}px`,
                 height: `${editor.settings.size.height}px`,
@@ -209,9 +261,12 @@
               <!-- Background Image with Blend Mode -->
               <div
                 v-if="editor.settings.colors.backgroundImage"
-                class="absolute inset-0 bg-cover bg-center"
+                class="absolute inset-0"
                 :style="{
-                  backgroundImage: `url('${editor.settings.colors.backgroundImage}')`,
+                  backgroundImage: `url('${editor.settings.colors.backgroundImage.url}')`,
+                  backgroundPosition: editor.settings.colors.backgroundImage.position,
+                  backgroundRepeat: editor.settings.colors.backgroundImage.repeat,
+                  backgroundSize: editor.settings.colors.backgroundImage.size,
                   mixBlendMode: editor.settings.colors.blendMode as any
                 }"
               ></div>
