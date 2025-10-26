@@ -183,18 +183,23 @@
       ref="canvasContainer"
       class="flex-1 flex items-center justify-center overflow-hidden m-4 pl-20"
     >
-      <!-- Canvas Component -->
+      <!-- Scaled Wrapper -->
       <div
-        ref="canvasElement"
-        :class="['relative', `size-${editor.settings.size.preset}`]"
         :style="{
-          width: `${editor.settings.size.width}px`,
-          height: `${editor.settings.size.height}px`,
-          backgroundColor: editor.settings.colors.background,
           transform: `scale(${scale})`,
           transformOrigin: 'center'
         }"
       >
+        <!-- Canvas Component (no transform) -->
+        <div
+          ref="canvasElement"
+          :class="['relative', `size-${editor.settings.size.preset}`]"
+          :style="{
+            width: `${editor.settings.size.width}px`,
+            height: `${editor.settings.size.height}px`,
+            backgroundColor: editor.settings.colors.background
+          }"
+        >
           <!-- Background Image with Blend Mode -->
           <div
             v-if="editor.settings.colors.backgroundImage"
@@ -227,6 +232,7 @@
           />
         </div>
       </div>
+    </div>
   </div>
 </template>
 
@@ -416,6 +422,11 @@ function handleCtaEdit(value: string) {
 
 async function handleDownload() {
   if (!canvasElement.value) return
-  await exportAsJpeg(canvasElement.value)
+  
+  // Export with exact canvas dimensions (no transform on canvasElement, so no black margins)
+  await exportAsJpeg(canvasElement.value, {
+    width: editor.settings.size.width,
+    height: editor.settings.size.height
+  })
 }
 </script>
