@@ -1,12 +1,24 @@
 <template>
-  <div class="relative z-10 h-full flex flex-col p-12">
-    <!-- Logo -->
-    <div class="mb-auto">
-      <NuxtImg
-        src="/logo-long.png"
-        alt="Jews for Freedom"
-        class="h-12 w-auto"
-      />
+  <div class="relative z-10 h-full flex flex-col justify-between p-12">
+    <div class="flex items-center justify-between [.size-portrait_&]:flex-col">
+      <!-- Logo -->
+      <div class="mb-auto">
+        <NuxtImg
+          src="/logo-long.png"
+          alt="Jews for Freedom"
+          class="h-18 w-auto"
+        />
+      </div>
+        <!-- URL Bar -->
+        <div
+          class="text-3xl font-medium px-2 py-1 rounded"
+          :style="{
+            color: settings.colors.bodyText,
+            backgroundColor: settings.colors.background
+          }"
+        >
+          {{ settings.content.url }}
+        </div>
     </div>
 
     <!-- Body Text -->
@@ -14,8 +26,9 @@
       v-if="settings.content.body"
       contenteditable="true"
       @blur="handleBodyEdit"
-      class="text-4xl leading-relaxed my-4 outline-none p-4 font-bold border-l-4 border-solid"
+      class="leading-relaxed my-4 outline-none p-4 font-bold border-l-4 border-solid"
       :style="{
+        fontSize: `${settings.content.bodySize}px`,
         color: settings.colors.bodyText,
         backgroundColor: settings.colors.background,
         borderColor: settings.colors.accent
@@ -23,50 +36,47 @@
       v-text="settings.content.body"
     ></p>
 
-    <!-- Headline -->
-    <h1
-      contenteditable="true"
-      @blur="handleHeadlineEdit"
-      class="text-7xl font-bold leading-tight mb-8 outline-none border-b-4"
-      :style="{
-        color: settings.colors.headlineText,
-        borderColor: settings.colors.accent,
-        textShadow: `2px 2px 0 rgb(0 0 0 / 0.75)`
-      }"
-      v-text="settings.content.headline"
-    ></h1>
-
-    <!-- Bottom Section -->
-    <div class="flex items-center justify-between gap-8">
-      <!-- CTA Button -->
-      <div
+    <div>
+      <!-- Headline -->
+      <h1
+        v-if="settings.content.headline"
         contenteditable="true"
-        @blur="handleCtaEdit"
-        class="px-8 py-4 font-bold text-3xl rounded-lg outline-none font-heading-normal"
+        @blur="handleHeadlineEdit"
+        class="font-bold leading-tight mb-8 outline-none border-b-4"
         :style="{
-          backgroundColor: settings.colors.ctaBackground,
-          color: settings.colors.ctaText,
+          fontSize: `${settings.content.headlineSize}px`,
+          color: settings.colors.headlineText,
+          borderColor: settings.colors.accent,
+          textShadow: `4px 4px 0 rgb(0 0 0 / 0.75)`
         }"
-        v-text="settings.content.callToAction"
-      ></div>
-
-      <!-- URL & QR -->
-      <div class="flex flex-col items-end">
-        <img
-          v-if="settings.content.showQrCode && qrCodeDataUrl"
-          :src="qrCodeDataUrl"
-          alt="QR Code"
-          class="w-24 h-24 border-4 rounded"
-          :style="{ borderColor: settings.colors.background }"
-        />
+        v-text="settings.content.headline"
+      ></h1>
+      <!-- Bottom Section -->
+      <div class="flex items-center justify-between gap-8">
+        <!-- CTA Button -->
         <div
-          class="text-xl font-medium px-2 py-1 rounded"
-          :style="{ 
-            color: settings.colors.headlineText,
-            backgroundColor: settings.colors.background
+          v-if="settings.content.callToAction"
+          contenteditable="true"
+          @blur="handleCtaEdit"
+          class="px-8 py-4 font-bold rounded-lg outline-none font-heading-normal"
+          :style="{
+            fontSize: `${settings.content.callToActionSize}px`,
+            backgroundColor: settings.colors.ctaBackground,
+            color: settings.colors.ctaText,
           }"
+          v-text="settings.content.callToAction"
+        ></div>
+        <!-- QR -->
+        <div 
+          class="flex flex-col items-end p-2 rounded" 
+          :style="{ backgroundColor: settings.colors.ctaBackground }"
+          v-if="settings.content.showQrCode && qrCodeDataUrl"
         >
-          {{ settings.content.url }}
+          <img
+            :src="qrCodeDataUrl"
+            alt="QR Code"
+            class="w-24 h-24"
+          />
         </div>
       </div>
     </div>

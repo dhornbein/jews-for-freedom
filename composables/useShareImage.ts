@@ -20,8 +20,11 @@ interface ShareImageSettings {
   }
   content: {
     headline: string
+    headlineSize: number
     body?: string
+    bodySize: number
     callToAction: string
+    callToActionSize: number
     url: string
     showQrCode: boolean
   }
@@ -313,8 +316,11 @@ export function useShareImage() {
     },
     content: {
       headline: 'Stand Up Against Authoritarianism',
+      headlineSize: 64,
       body: sharedText.longText,
+      bodySize: 24,
       callToAction: 'Sign the Statement',
+      callToActionSize: 32,
       url: displayUrl,
       showQrCode: true
     },

@@ -68,6 +68,16 @@
             v-model="editor.settings.content.headline"
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent"
           />
+          <div class="flex items-center gap-2 mt-2">
+            <input
+              type="range"
+              v-model.number="editor.settings.content.headlineSize"
+              min="24"
+              max="120"
+              class="flex-1"
+            />
+            <span class="text-xs text-brand-text/60 w-12 text-right">{{ editor.settings.content.headlineSize }}px</span>
+          </div>
         </div>
 
         <div>
@@ -87,6 +97,16 @@
             rows="3"
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent resize-none"
           ></textarea>
+          <div class="flex items-center gap-2 mt-2">
+            <input
+              type="range"
+              v-model.number="editor.settings.content.bodySize"
+              min="12"
+              max="48"
+              class="flex-1"
+            />
+            <span class="text-xs text-brand-text/60 w-12 text-right">{{ editor.settings.content.bodySize }}px</span>
+          </div>
         </div>
 
         <div>
@@ -106,6 +126,16 @@
             v-model="editor.settings.content.callToAction"
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent"
           />
+          <div class="flex items-center gap-2 mt-2">
+            <input
+              type="range"
+              v-model.number="editor.settings.content.callToActionSize"
+              min="16"
+              max="72"
+              class="flex-1"
+            />
+            <span class="text-xs text-brand-text/60 w-12 text-right">{{ editor.settings.content.callToActionSize }}px</span>
+          </div>
         </div>
 
         <!-- QR Code Toggle -->

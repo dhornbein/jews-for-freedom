@@ -13,8 +13,9 @@
     <h1
       contenteditable="true"
       @blur="handleHeadlineEdit"
-      class="text-5xl font-bold leading-tight mb-12 outline-none max-w-3xl"
+      class="font-bold leading-tight mb-12 outline-none max-w-3xl"
       :style="{
+        fontSize: `${settings.content.headlineSize}px`,
         color: settings.colors.headlineText,
         fontFamily: 'roc-grotesk-compressed, Impact, sans-serif'
       }"
@@ -25,8 +26,9 @@
     <button
       contenteditable="true"
       @blur="handleCtaEdit"
-      class="px-10 py-5 text-xl font-bold rounded-lg outline-none mb-8"
+      class="px-10 py-5 font-bold rounded-lg outline-none mb-8"
       :style="{
+        fontSize: `${settings.content.callToActionSize}px`,
         backgroundColor: settings.colors.ctaBackground,
         color: settings.colors.ctaText,
         fontFamily: 'museo-slab, Georgia, serif'
