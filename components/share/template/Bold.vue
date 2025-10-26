@@ -90,7 +90,7 @@
         </ShareEditableText>
         <!-- QR -->
         <div 
-          class="flex flex-col items-end p-2 rounded" 
+          class="flex flex-col items-end p-2 mt-2 rounded" 
           :style="{ backgroundColor: settings.colors.ctaBackground }"
           v-if="settings.content.showQrCode && qrCodeDataUrl"
         >

@@ -80,7 +80,7 @@
       <!-- Add tooltip -->
       <div
         v-if="showAddTooltip"
-        class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none z-10"
+        class="absolute -top-12 left-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none z-10"
       >
         Add {{ fieldLabel }} text
       </div>

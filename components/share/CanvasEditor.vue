@@ -171,7 +171,7 @@
     <!-- Canvas Preview Area -->
     <div 
       ref="canvasContainer"
-      class="flex-1 flex items-center justify-center overflow-hidden m-4 pl-20"
+      class="flex-1 flex items-center justify-center overflow-hidden m-4"
     >
       <!-- Scaled Wrapper -->
       <div
@@ -218,6 +218,7 @@
             :settings="editor.settings"
             :qr-code-data-url="qrCodeDataUrl"
             @update:headline="handleHeadlineEdit"
+            @update:body="handleBodyEdit"
             @update:cta="handleCtaEdit"
           />
         </div>
@@ -412,6 +413,18 @@ function handleCtaEdit(value: string) {
 
 async function handleDownload() {
   if (!canvasElement.value) return
+  
+  // Deselect any active editing field to avoid exporting outlines
+  editingField.value = null
+  
+  // Blur any focused contenteditable elements
+  const activeElement = document.activeElement as HTMLElement
+  if (activeElement && activeElement.getAttribute('contenteditable') === 'true') {
+    activeElement.blur()
+  }
+  
+  // Wait for DOM to update (outline removal)
+  await nextTick()
   
   // Export with exact canvas dimensions (no transform on canvasElement, so no black margins)
   await exportAsJpeg(canvasElement.value, {

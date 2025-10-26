@@ -166,7 +166,7 @@ const BACKGROUND_IMAGE_PRESETS: BackgroundImagePreset[] = [
       url: '/img/cop.png',
       position: 'left bottom',
       repeat: 'no-repeat',
-      size: 'contain'
+      size: 'auto 80%'
     }
   },
   {
