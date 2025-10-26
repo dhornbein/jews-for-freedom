@@ -70,10 +70,10 @@
       @click="focusContent"
       @mouseenter="showAddTooltip = true"
       @mouseleave="showAddTooltip = false"
-      class="export-exclude relative flex items-center justify-center hover:bg-black/5 transition-colors rounded py-4"
+      class="export-exclude absolute inset-0 flex items-center justify-center hover:bg-black/5 transition-colors rounded"
       title="Add text"
     >
-      <div class="w-24 h-24 -ml-32 bg-white/50 hover:bg-white border-2 border-brand-primary-dark text-brand-primary rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+      <div class="w-18 h-18 bg-white/50 hover:bg-white border-2 border-brand-primary-dark text-brand-primary rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
         <Icon name="mdi:plus" class="text-7xl" />
       </div>
       
