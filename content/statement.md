@@ -2,6 +2,8 @@
 title: Together We Must Defend Our Freedoms
 ---
 
-# Together We Must Defend Our Freedoms
+# Join Jews for Freedom
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.
+Jews know in our bones what happens when people with power try to dismantle democratic rights and protections. Now is the time for us to join other communities in standing up for democracy and freedom.
+
+Join other concerned Jews ready and eager to take on authoritarianism by signing up today.

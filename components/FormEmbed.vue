@@ -8,7 +8,8 @@
 </template>
 
 <style>
-.can_embed #can_embed_form_inner > h2 {
+.can_embed #can_embed_form_inner > h2,
+.can_embed #can_embed_form_inner > h4 {
   @apply hidden;
 }
 

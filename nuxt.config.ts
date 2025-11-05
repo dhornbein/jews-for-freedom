@@ -10,6 +10,11 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt'
   ],
+  content: {
+    renderer: {
+      anchorLinks: false,
+    }
+  },
   image: {
     provider: 'none',
     dir: 'public'

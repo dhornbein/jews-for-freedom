@@ -2,7 +2,7 @@
   <NuxtImg 
     :src="src" 
     :alt="alt"
-    :style="{ shapeOutside: `url('${src}')`, shapeImageThreshold: threshold }" 
+    :style="{ shapeOutside: `url('${src}')`, shapeImageThreshold: threshold, shapeMargin: '1rem' }" 
     class="shape"
   />
 </template>
