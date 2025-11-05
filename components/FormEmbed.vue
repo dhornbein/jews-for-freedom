@@ -27,11 +27,16 @@ interface FormEmbedProps {
   formUrl?: string
   whitelabel?: boolean
   layout?: 'default' | 'full'
+  customizations?: Array<{
+    selector: string
+    modify: (element: Element) => void
+  }>
 }
 
 const props = withDefaults(defineProps<FormEmbedProps>(), {
   whitelabel: true,
-  layout: 'default'
+  layout: 'default',
+  customizations: () => []
 })
 
 // formUrl default must not reference local variables inside defineProps; compute a runtime fallback instead
@@ -65,6 +70,21 @@ const scriptSrc = computed(() => {
 
 // Only render embed when we have a valid slug
 const hasValidEmbed = computed(() => formSlug.value !== 'unknown')
+
+// Setup form customization
+const containerRef = computed(() => `#can-form-area-${formSlug.value}`)
+
+const { waitForForm } = useFormCustomization({
+  customizations: props.customizations,
+  containerSelector: containerRef.value
+})
+
+// Apply customizations after form loads
+onMounted(() => {
+  if (hasValidEmbed.value) {
+    waitForForm()
+  }
+})
 
 useHead(() => ({
   link: hasValidEmbed.value

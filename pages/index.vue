@@ -30,7 +30,7 @@
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
       <div id="embed" class="mx-auto max-w-prose px-4 pt-8">
-        <FormEmbed />
+        <FormEmbed :customizations="formCustomizations" />
       </div>
     </section>
 
@@ -77,6 +77,26 @@ const siteUrl = config.public.siteUrl || 'https://jewsforfreedom.com'
 
 // Get share text
 const { longText: statementText } = useShareText()
+
+const optInStatement = 'Yes, I want to receive follow up emails from the Jews for Freedom campaign and our partners.'
+
+// Form customizations
+const formCustomizations = [
+  // Change opt-in checkbox label text
+  {
+    selector: 'label:has(input[name="subscription[group]"])',
+    modify: (element: Element) => {
+      const label = element as HTMLLabelElement
+      // Find the text node (usually the last child after the inputs)
+      const textNode = Array.from(label.childNodes).find(
+        node => node.nodeType === Node.TEXT_NODE && node.textContent?.trim()
+      )
+      if (textNode) {
+        textNode.textContent = ` ${optInStatement}`
+      }
+    }
+  }
+]
 
 useSeoMeta({
   title: 'Jews for Freedom',
