@@ -315,11 +315,11 @@ export function useShareImage() {
       height: 1080
     },
     content: {
-      headline: 'Stand Up Against Authoritarianism',
+      headline: sharedText.title,
       headlineSize: 64,
       body: sharedText.longText,
       bodySize: 24,
-      callToAction: 'Sign the Statement',
+      callToAction: sharedText.cta,
       callToActionSize: 32,
       url: displayUrl,
       showQrCode: true
