@@ -23,17 +23,13 @@ export default defineNuxtConfig({
       routes: ['/']
     }
   },
-  app: {
-    head: {
-      link: [
-        { rel: 'stylesheet', href: 'https://use.typekit.net/hdp3ciu.css' }
-      ]
-    }
-  },
+  css: [
+    '~/assets/css/fonts.css'
+  ],
   runtimeConfig: {
     public: {
       formUrl: '',
-      siteUrl: ''
+      siteUrl: 'https://jewsforfreedom.com'
     }
   }
 })
