@@ -2,7 +2,7 @@
   <NuxtImg 
     :src="src" 
     :alt="alt"
-    :style="{ shapeOutside: `url('${src}')`, shapeImageThreshold: threshold, shapeMargin: '1rem' }" 
+    :style="{ shapeOutside: `url('${src}')`, shapeImageThreshold: threshold, shapeMargin: margin }" 
     class="shape"
   />
 </template>
@@ -12,11 +12,13 @@ interface Props {
   src: string
   alt?: string
   threshold?: number
+  margin?: string
 }
 
 withDefaults(defineProps<Props>(), {
   alt: '',
-  threshold: 0.2
+  threshold: 0.2,
+  margin: '0.5em'
 })
 </script>
 

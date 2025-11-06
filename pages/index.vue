@@ -2,8 +2,9 @@
   <div>
     <!-- Hero / Introduction -->
     <section id="hero" class="border-t-4 border-brand-primary overflow-hidden">
-      <div class="py-16 bg-blend-color-burn bg-brand-background bg-cover bg-bottom border-b border-brand-background-dark">
-        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto" />
+      <div class="pt-16 border-b border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark">
+        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh]" />
+        <NuxtImg src="/img/shofar-fist.png"  class="mx-auto pt-8 mix-blend-color-burn md:max-h-[40vh]" />
       </div>
       <NavSmall class="my-6" />
     </section>
@@ -11,17 +12,14 @@
     <section id="introduction" class="overflow-hidden">
       <div class="mx-auto max-w-prose px-4">
         <article class="prose prose-neutral text-xl leading-relaxed max-w-none">
-          <ShapedImage src="/img/arm-poster.png" class="float-right -mr-8 my-0 sm:-mr-14  max-w-[40vw] max-h-[40vh]" />
+          <ShapedImage src="/img/flowers.png" class="float-right -mr-8 mt-16 sm:-mr-14  max-w-[50vw] max-h-[70vh]" />
           <p>Major Jewish organizations and individuals are launching a full-throated and widespread Jewish resistance to authoritarianism as part of a broader multi-faith effort. The overall resistance is occurring across all lines of difference, including race, gender, class, financial status, sexual orientation, age, ability, and religion. Showing up as Jews, as individuals and as communities, is part of a long-standing tradition we take pride in.</p>
         </article>
       </div>
     </section>
 
-    <!-- Parallax Fists -->
-    <ParallaxFists class="h-48 -mb-4 z-0 w-full border-b border-brand-background-dark" />
-
     <!-- Statement -->
-    <section id="statement" class="px-8 py-8 z-10 relative bg-white max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
+    <section id="statement" class="px-8 py-8 mt-8 z-10 relative bg-white max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
       <div class="mx-auto max-w-prose">
         <p class="text-sm text-gray-400 uppercase mb-4">Sign <span class="lowercase font-serif italic">the</span> Statement</p>
         <article v-if="statement" class="prose prose-neutral max-w-none">
@@ -29,7 +27,7 @@
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
-      <div id="embed" class="mx-auto max-w-prose px-4 pt-8">
+      <div id="embed" class="mx-auto max-w-prose pt-8">
         <FormEmbed :customizations="formCustomizations" />
       </div>
     </section>
@@ -39,7 +37,7 @@
     <section id="about" class="py-16 sm:py-24 overflow-hidden">
       <div class="mx-auto max-w-prose px-4">
         <article v-if="aboutUs" class="prose prose-neutral prose-li:marker:text-brand-primary max-w-none">
-          <ShapedImage src="/img/not-now-when-poster.png" :threshold="0.4" class="float-right -mr-8 my-0 sm:-mr-14 max-w-[40vw] max-h-[70vh]" />
+          <ShapedImage src="/img/not-now-when-poster.png" :threshold="0.4" class="float-right -mr-8 my-0 sm:-mr-14 max-w-[50vw] max-h-[90vh]" />
           <h1>About Us</h1>
           <ContentRenderer :value="aboutUs" :data="{}" />
         </article>
@@ -53,17 +51,29 @@
     </section>
 
     <!-- Share / How to Help -->
-    <section id="share" class="py-16 sm:py-24">
+    <section id="share" 
+      class="pt-16 pb-24 sm:py-24 share">
       <div class="mx-auto max-w-prose px-4">
-        <h1 class="mb-6">Spread the Word</h1>
+        <h1 class="mb-6 text-white border-white">Spread the Word</h1>
         <ShareButtons 
           :long-text="statementText"
           :url="siteUrl"
         />
+        <nuxt-link to="/share" class="btn btn-block btn-outline-white mt-4 bg-brand-primary/60">Download Image</nuxt-link>
       </div>
     </section>
+
+    <NuxtImg src="/img/shofar-arm.png" class="mx-auto mix-blend-color-burn mt-16 max-h-[80vh]" />
   </div>
 </template>
+
+<style>
+.share {
+  @apply bg-brand-primary-dark border-t-2 border-brand-primary shadow-md
+  bg-[url('/img/fists-fg.png'),url('/img/fists-mg.png')] bg-repeat-x bg-blend-multiply bg-bottom;
+  background-size: auto 10rem;
+}
+</style>
 
 <script setup lang="ts">
 import FormEmbed from '~/components/FormEmbed.vue'

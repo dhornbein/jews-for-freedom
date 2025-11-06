@@ -5,7 +5,7 @@
       v-if="supportsWebShare"
       @click="handleWebShare"
       :disabled="isSharing"
-      class="flex items-center justify-center gap-3 px-6 py-3 bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      class="flex items-center justify-center gap-3 px-6 py-6 shadow-md bg-brand-primary text-white font-bold rounded-lg hover:bg-brand-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       data-analytics-action="web-share"
     >
       <Icon name="fa6-brands:share-nodes" class="text-xl" />
@@ -13,7 +13,7 @@
     </button>
 
     <!-- Fallback Platform Buttons -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
       <!-- Copy to Clipboard -->
       <button
         @click="handleCopyToClipboard"
