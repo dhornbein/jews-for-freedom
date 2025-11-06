@@ -1,25 +1,26 @@
 <template>
-  <div>
+  <div class="overflow-hidden">
     <!-- Hero / Introduction -->
-    <section id="hero" class="border-t-4 border-brand-primary overflow-hidden">
-      <div class="pt-16 border-b border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark">
+    <section id="hero" class="border-t-4 border-t-brand-primary overflow-hidden">
+      <div class="pt-16 sm:pt-6 border-b sm:flex justify-around items-center lg:justify-center
+      border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark border-b-brand-background-light">
         <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh]" />
-        <NuxtImg src="/img/shofar-fist.png"  class="mx-auto pt-8 mix-blend-color-burn md:max-h-[40vh]" />
+        <NuxtImg src="/img/shofar-fist.png"  class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh]" />
       </div>
       <NavSmall class="my-6" />
     </section>
 
-    <section id="introduction" class="overflow-hidden">
-      <div class="mx-auto max-w-prose px-4">
+    <section id="introduction">
+      <div class="mx-auto max-w-prose px-4 mb-16">
         <article class="prose prose-neutral text-xl leading-relaxed max-w-none">
-          <ShapedImage src="/img/flowers.png" class="float-right -mr-8 mt-16 sm:-mr-14  max-w-[50vw] max-h-[70vh]" />
+          <ShapedImage src="/img/flowers.png" class="float-right -mr-[20vw] sm:-mr-14 sm:-mt-14 max-w-[80vw]" margin="0" />
           <p>Major Jewish organizations and individuals are launching a full-throated and widespread Jewish resistance to authoritarianism as part of a broader multi-faith effort. The overall resistance is occurring across all lines of difference, including race, gender, class, financial status, sexual orientation, age, ability, and religion. Showing up as Jews, as individuals and as communities, is part of a long-standing tradition we take pride in.</p>
         </article>
       </div>
     </section>
 
     <!-- Statement -->
-    <section id="statement" class="px-8 py-8 mt-8 z-10 relative bg-white max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
+    <section id="statement" class="px-8 py-8 sm:py-16 z-10 relative bg-white max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
       <div class="mx-auto max-w-prose">
         <p class="text-sm text-gray-400 uppercase mb-4">Sign <span class="lowercase font-serif italic">the</span> Statement</p>
         <article v-if="statement" class="prose prose-neutral max-w-none">
@@ -29,6 +30,7 @@
       </div>
       <div id="embed" class="mx-auto max-w-prose pt-8">
         <FormEmbed :customizations="formCustomizations" />
+        <NuxtImg src="/img/dove.png" class="hidden sm:block mx-auto max-h-56 w-auto object-contain opacity-30 absolute bottom-6 right-6" />
       </div>
     </section>
 
