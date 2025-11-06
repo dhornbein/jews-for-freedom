@@ -13,7 +13,7 @@
     <section id="introduction">
       <div class="mx-auto max-w-prose px-4 mb-16">
         <article class="prose prose-neutral text-xl leading-relaxed max-w-none">
-          <ShapedImage src="/img/flowers.png" class="float-right -mr-[30vw] sm:-mr-14 sm:-mt-14 lg:-mt-44 lg:-mr-[80%] max-w-[80vw] lg:max-w-[70vh]" margin="0" />
+          <ShapedImage src="/img/flowers.png" class="float-right -mr-[30vw] sm:-mr-14 sm:-mt-14 lg:-mt-44 lg:-mr-[50%] max-w-[80vw] lg:max-w-[70vh]" margin="0" />
           <p>Major Jewish organizations and individuals are launching a full-throated and widespread Jewish resistance to authoritarianism as part of a broader multi-faith effort. The overall resistance is occurring across all lines of difference, including race, gender, class, financial status, sexual orientation, age, ability, and religion. Showing up as Jews, as individuals and as communities, is part of a long-standing tradition we take pride in.</p>
         </article>
       </div>
