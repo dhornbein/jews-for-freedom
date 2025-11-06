@@ -4,8 +4,8 @@
     <section id="hero" class="border-t-4 border-t-brand-primary overflow-hidden">
       <div class="pt-16 sm:pt-6 border-b sm:flex justify-around items-center lg:justify-center
       border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark border-b-brand-background-light">
-        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh]" />
-        <NuxtImg src="/img/shofar-fist.png"  class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh]" />
+        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh] lg:p-12 lg:m-0" />
+        <NuxtImg src="/img/shofar-fist.png"  class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh] lg:m-0" />
       </div>
       <NavSmall class="my-6" />
     </section>
@@ -13,7 +13,7 @@
     <section id="introduction">
       <div class="mx-auto max-w-prose px-4 mb-16">
         <article class="prose prose-neutral text-xl leading-relaxed max-w-none">
-          <ShapedImage src="/img/flowers.png" class="float-right -mr-[20vw] sm:-mr-14 sm:-mt-14 max-w-[80vw]" margin="0" />
+          <ShapedImage src="/img/flowers.png" class="float-right -mr-[30vw] sm:-mr-14 sm:-mt-14 lg:-mt-44 lg:-mr-[80%] max-w-[80vw] lg:max-w-[70vh]" margin="0" />
           <p>Major Jewish organizations and individuals are launching a full-throated and widespread Jewish resistance to authoritarianism as part of a broader multi-faith effort. The overall resistance is occurring across all lines of difference, including race, gender, class, financial status, sexual orientation, age, ability, and religion. Showing up as Jews, as individuals and as communities, is part of a long-standing tradition we take pride in.</p>
         </article>
       </div>
@@ -39,7 +39,7 @@
     <section id="about" class="py-16 sm:py-24 overflow-hidden">
       <div class="mx-auto max-w-prose px-4">
         <article v-if="aboutUs" class="prose prose-neutral prose-li:marker:text-brand-primary max-w-none">
-          <ShapedImage src="/img/not-now-when-poster.png" :threshold="0.4" class="float-right -mr-8 my-0 sm:-mr-14 max-w-[50vw] max-h-[90vh]" />
+          <ShapedImage src="/img/not-now-when-poster.png" :threshold="0.4" class="float-right -mr-8 my-0 sm:-mr-14 max-w-[50vw] max-h-[90vh] lg:-mr-[50%]" />
           <h1>About Us</h1>
           <ContentRenderer :value="aboutUs" :data="{}" />
         </article>

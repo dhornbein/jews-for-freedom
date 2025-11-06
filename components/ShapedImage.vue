@@ -21,9 +21,3 @@ withDefaults(defineProps<Props>(), {
   margin: '0.5em'
 })
 </script>
-
-<style scoped>
-.shape {
-  shape-image-threshold: 0.2;
-}
-</style>
