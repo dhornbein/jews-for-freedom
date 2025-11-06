@@ -63,7 +63,7 @@
       </div>
     </section>
 
-    <NuxtImg src="/img/shofar-arm.png" class="mx-auto mix-blend-color-burn mt-16 max-h-[80vh]" />
+    <NuxtImg src="/img/shofar-arm.png" class="mx-auto mix-blend-color-burn mt-16 md:max-h-[80vh]" />
   </div>
 </template>
 
