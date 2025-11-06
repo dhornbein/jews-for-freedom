@@ -5,7 +5,7 @@
       <div class="pt-16 sm:pt-6 border-b sm:flex justify-around items-center lg:justify-center
       border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark border-b-brand-background-light">
         <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh] lg:p-12 lg:m-0" />
-        <NuxtImg src="/img/shofar-fist.png"  class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh] lg:m-0" />
+        <NuxtImg src="/img/shofar-arm.png"  class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh] lg:m-0" />
       </div>
       <NavSmall class="my-6" />
     </section>
@@ -65,7 +65,7 @@
       </div>
     </section>
 
-    <NuxtImg src="/img/shofar-arm.png" class="mx-auto mix-blend-color-burn mt-16 md:max-h-[80vh]" />
+    <NuxtImg src="/img/shofar-fist.png" class="mx-auto mix-blend-color-burn mt-16 md:max-h-[80vh]" />
   </div>
 </template>
 
