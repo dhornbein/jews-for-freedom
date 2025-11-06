@@ -1,6 +1,6 @@
 <template>
   <footer class="border-t border-brand-dark/10 bg-white/70 backdrop-blur">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 grid gap-8 md:grid-cols-3 text-sm text-brand-text">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 grid gap-8 lg:gap-16 md:grid-cols-3 text-sm text-brand-text">
       <div>
         <NuxtImg
           src="/logo-long.png"
@@ -21,6 +21,9 @@
         <a v-for="link in nav.legal" :key="link.href" :href="link.href" class="hover:text-brand-primary">{{ link.label }}</a>
         <p class="text-brand-text/60 text-center w-full mt-8 sm:text-left sm:mt-0">© {{ new Date().getFullYear() }} Jews for Freedom</p>
       </div>
+    </div>
+    <div class="bg-[url('/img/fists-fg.png'),url('/img/fists-mg.png')] bg-repeat-x bg-blend-soft-light bg-bottom" style="background-size: auto 10rem;">
+      <NuxtImg src="/img/shofar-fist.png" class="mx-auto md:max-h-[80vh]" />
     </div>
   </footer>
 </template>

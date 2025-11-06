@@ -54,7 +54,7 @@
 
     <!-- Share / How to Help -->
     <section id="share" 
-      class="pt-16 pb-24 sm:py-24 share">
+      class="pt-16 pb-24 sm:py-24 bg-brand-primary-dark border-t-2 border-brand-primary shadow-md">
       <div class="mx-auto max-w-prose px-4">
         <h1 class="mb-6 text-white border-white">Spread the Word</h1>
         <ShareButtons 
@@ -64,18 +64,8 @@
         <nuxt-link to="/share" class="btn btn-block btn-outline-white mt-4 bg-brand-primary/60">Download Image</nuxt-link>
       </div>
     </section>
-
-    <NuxtImg src="/img/shofar-fist.png" class="mx-auto mix-blend-color-burn mt-16 md:max-h-[80vh]" />
   </div>
 </template>
-
-<style>
-.share {
-  @apply bg-brand-primary-dark border-t-2 border-brand-primary shadow-md
-  bg-[url('/img/fists-fg.png'),url('/img/fists-mg.png')] bg-repeat-x bg-blend-multiply bg-bottom;
-  background-size: auto 10rem;
-}
-</style>
 
 <script setup lang="ts">
 import FormEmbed from '~/components/FormEmbed.vue'
