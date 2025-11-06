@@ -1,6 +1,6 @@
 <template>
   <footer class="border-t border-brand-dark/10 bg-white/70 backdrop-blur">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 grid gap-8 md:grid-cols-3 text-sm text-brand-text">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16 grid gap-8 md:grid-cols-3 text-sm text-brand-text">
       <div>
         <NuxtImg
           src="/logo-long.png"
