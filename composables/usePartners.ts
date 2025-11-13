@@ -10,30 +10,28 @@ export function usePartners(): readonly Partner[] {
   return [
     { 
       name: 'Bend the Arc',
-      logo: '/partner-logo-bend-the-arc.svg',
+      logo: '/partner-bend-the-arc.png',
       href: 'https://www.bendthearc.us/'
     },
     { 
       name: 'Collaborative for Jewish Organizing',
-      logo: '/partner-logo-collaborative-for-jewish-organizing.png',
+      logo: '/partner-collaborative.png',
       href: 'https://www.collaborativeforjewishorganizing.org/'
     },
     { 
       name: 'Jews United for Justice',
-      logo: '/partner-logo-jews-united-for-justice.png',
+      logo: '/partner-jews-united.png',
       href: 'https://jufj.org/'
     },
     { 
       name: 'Jewish Social Justice Roundtable',
-      logo: '/partner-logo-jewish-social-justice-roundtable.png',
-      href: 'https://www.jewishsocialjustice.org/',
-      imgClass: 'p-2 bg-white rounded-md max-w-40'
+      logo: '/partner-roundtable.png',
+      href: 'https://www.jewishsocialjustice.org/'
     },
     { 
       name: 'Religious Action Center',
-      logo: '/partner-logo-rac.svg',
-      href: 'https://rac.org/',
-      imgClass: 'max-w-40'
+      logo: '/partner-rac.png',
+      href: 'https://rac.org/'
     },
   ] as const
 }

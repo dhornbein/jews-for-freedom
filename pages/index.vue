@@ -2,9 +2,9 @@
   <div class="overflow-hidden">
     <!-- Hero / Introduction -->
     <section id="hero" class="border-t-4 border-t-brand-primary overflow-hidden">
-      <div class="pt-16 sm:pt-6 border-b sm:flex justify-around items-center lg:justify-center
+      <div class="pt-16 sm:pt-6 border-b sm:flex sm:flex-row-reverse justify-around items-center lg:justify-center
       border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark border-b-brand-background-light">
-        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh] lg:p-12 lg:m-0" />
+        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh] lg:py-12 lg:pl-0 lg:pr-24 lg:m-0" />
         <NuxtImg src="/img/shofar-arm.png"  class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh] lg:m-0" />
       </div>
       <NavSmall class="my-6" />
@@ -47,15 +47,15 @@
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 max-w-screen-xl mx-auto">
-        <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name">
-          <NuxtImg v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-80 w-full object-contain mx-auto saturate-0 hover:saturate-100" :class="partner.imgClass" />
+        <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name" class="last:col-span-2">
+          <NuxtImg v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-40 object-contain mx-auto mix-blend-multiply hover:mix-blend-normal" :class="partner.imgClass" />
         </a>
       </div>
     </section>
 
     <!-- Share / How to Help -->
     <section id="share" 
-      class="pt-16 pb-24 sm:py-24 bg-brand-primary-dark border-t-2 border-brand-primary shadow-md bg-[url('/img/arm-poster.png')] bg-no-repeat bg-right-bottom bg-blend-soft-light bg-contain">
+      class="pt-16 pb-24 sm:py-24 bg-brand-primary-dark border-t-2 border-brand-primary shadow-md bg-[url('/img/arm-poster.png')] bg-no-repeat bg-right-bottom bg-blend-soft-light" style="background-size: auto 90%; background-position: calc(100% - 10px) center;">
       <div class="mx-auto max-w-prose px-4">
         <h1 class="mb-6 text-white border-white">Spread the Word</h1>
         <ShareButtons 

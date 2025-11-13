@@ -135,6 +135,10 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 - [ ] **Add Action Network API integration** - Track signatures, show counter (beyond basic embed)
 - [ ] **Create template graphics for sharing** - Static OG image at minimum, dynamic generation as stretch goal
 
+### Minor Improvements
+
+- [ ] **fix background svg texture image** - link is broken or not working
+
 ### Code Quality Improvements
 
 - [ ] **Throttle NavBar scroll handler** - Use VueUse's useThrottleFn or lodash.throttle for performance
@@ -145,6 +149,7 @@ MUST FOLLOW THESE RULES, NO EXCEPTIONS
 - [ ] **Add error boundaries** - Handle content loading failures properly instead of showing "Loading..." forever
 - [ ] **Add TypeScript types** - Type content queries, petition props, and other untyped areas
 - [ ] **Refactor hardcoded strings** - Move static text to content files or constants, mainly OG text, titles, taglines, etc
+- [ ] **Refactor CSS** - move btn classes from tailwind.css to the component <style> block
 
 ### Testing & Documentation
 
