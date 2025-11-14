@@ -10,6 +10,9 @@
         <p class="mt-4 text-lg text-brand-text/80 max-w-screen-sm mx-auto">
           Mobilizing American Jews in defense of democratic values.
         </p>
+        <div class="w-full sm:w-auto flex items-center gap-4 justify-center sm:justify-start mt-4">
+          <SocialIcons />
+        </div>
       </div>
       <nav class="grid gap-2 grid-cols-3 text-center text-lg md:col-span-2">
         <a :href="nav.cta.href" class="btn btn-outline-primary col-span-full mb-8">
@@ -23,7 +26,7 @@
       </div>
     </div>
     <div class="bg-[url('/img/fists-fg.png'),url('/img/fists-mg.png')] bg-repeat-x bg-blend-soft-light bg-bottom" style="background-size: auto 10rem;">
-      <NuxtImg src="/img/shofar-fist.png" class="mx-auto md:max-h-[80vh]" />
+      <NuxtImg src="/img/shofar-fist.png" alt="A strong arm holding a Shofar horn proudly" class="mx-auto md:max-h-[80vh]" aria-hidden="true" />
     </div>
   </footer>
 </template>

@@ -32,7 +32,7 @@
       </div>
       <div id="embed" class="mx-auto max-w-prose pt-8">
         <FormEmbed :customizations="formCustomizations" />
-        <NuxtImg src="/img/dove.png" class="hidden sm:block mx-auto max-h-56 w-auto object-contain opacity-30 absolute bottom-6 right-6" />
+        <NuxtImg src="/img/dove.png" alt="" class="hidden sm:block mx-auto max-h-56 w-auto object-contain opacity-30 absolute bottom-6 right-6" aria-hidden="true" />
       </div>
     </section>
 
@@ -46,9 +46,9 @@
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 max-w-screen-xl mx-auto">
+      <div class="sm:grid sm:grid-cols-2 gap-6 p-6 max-w-screen-lg mx-auto">
         <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name" class="last:col-span-2">
-          <NuxtImg v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-40 object-contain mx-auto mix-blend-multiply hover:mix-blend-normal" :class="partner.imgClass" />
+          <img v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-40 object-contain mx-auto mix-blend-multiply hover:mix-blend-normal" :class="partner.imgClass" />
         </a>
       </div>
     </section>

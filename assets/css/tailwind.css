@@ -119,6 +119,13 @@
 		@apply focus:ring-brand-primary-light;
 	}
 
+	/* Share button - for social share actions */
+	.btn-share {
+		@apply flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors;
+		@apply bg-brand-background text-brand-text hover:bg-brand-pink hover:text-brand-white;
+		@apply focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-brand-primary/50;
+	}
+
 	/* Size variations */
 	.btn-sm {
 		@apply px-4 py-2 text-sm;
@@ -144,6 +151,14 @@
 
 	.btn-square {
 		@apply rounded-none;
+	}
+}
+
+@layer base {
+	/* Universal focus styles for accessibility */
+	a:focus-visible,
+	button:focus-visible {
+		@apply outline-none ring-4 ring-offset-2 ring-brand-primary/50;
 	}
 }
 

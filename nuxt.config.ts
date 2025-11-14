@@ -33,8 +33,13 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      formUrl: process.env.ACTION_NETWORK_FORM_URL || '',
-      siteUrl: 'https://jewsforfreedom.com'
+      formUrl: process.env.NUXT_PUBLIC_FORM_URL || '',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://jewsforfreedom.com',
+      socialLinks: {
+        twitter: 'https://twitter.com/jewsforfreedom',
+        instagram: 'https://instagram.com/jewsforfreedom',
+        bluesky: 'https://bsky.app/profile/jewsforfreedom.com'
+      }
     }
   }
 })
