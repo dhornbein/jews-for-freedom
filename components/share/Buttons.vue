@@ -30,13 +30,11 @@
         <span class="text-sm">{{ isCopied ? 'Copied!' : 'Copy Link' }}</span>
       </button>
 
-      <!-- Twitter/X -->
-            <!-- Twitter/X -->
       <a
         :href="twitterUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-[#1DA1F2] hover:text-white rounded-lg font-medium transition-colors"
+        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-brand-twitter hover:text-white rounded-lg font-medium transition-colors"
         data-analytics-action="share-twitter"
         data-analytics-label="twitter"
       >
@@ -49,7 +47,7 @@
         :href="facebookUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-[#1877F2] hover:text-white rounded-lg font-medium transition-colors"
+        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-brand-facebook hover:text-white rounded-lg font-medium transition-colors"
         data-analytics-action="share-facebook"
         data-analytics-label="facebook"
       >
@@ -62,7 +60,7 @@
         :href="blueskyUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-[#1185FE] hover:text-white rounded-lg font-medium transition-colors"
+        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-brand-bluesky hover:text-white rounded-lg font-medium transition-colors"
         data-analytics-action="share-bluesky"
         data-analytics-label="bluesky"
       >
@@ -75,7 +73,7 @@
         :href="whatsappUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-[#25D366] hover:black rounded-lg font-medium transition-colors"
+        class="flex items-center justify-center gap-2 px-4 py-3 bg-brand-background text-brand-text hover:bg-brand-whatsapp hover:text-white rounded-lg font-medium transition-colors"
         data-analytics-action="share-whatsapp"
         data-analytics-label="whatsapp"
       >

@@ -31,15 +31,16 @@ const nav = useNavLinks()
 
 const isScrolled = ref(false)
 
-function handleScroll() {
+// Throttled scroll handler for performance
+const throttledScroll = useThrottleFn(() => {
   isScrolled.value = window.scrollY > 400
-}
+}, 100)
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', throttledScroll)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('scroll', throttledScroll)
 })
 </script>

@@ -27,6 +27,22 @@ export const brandColors = {
     light: '#a6b2cd',
     dark: '#6e7c97',
   },
+  twitter: {
+    DEFAULT: '#1DA1F2',
+    dark: '#0d8be0',
+  },
+  facebook: {
+    DEFAULT: '#1877F2',
+    dark: '#166fe0',
+  },
+  bluesky: {
+    DEFAULT: '#1185FE',
+    dark: '#0e6edb',
+  },
+  whatsapp: {
+    DEFAULT: '#25D366',
+    dark: '#1fa75a',
+  },
   dark: {
     DEFAULT: '#1a1a1a',
     light: '#2a2a2a',

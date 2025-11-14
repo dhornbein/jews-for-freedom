@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      formUrl: '',
+      formUrl: process.env.ACTION_NETWORK_FORM_URL || '',
       siteUrl: 'https://jewsforfreedom.com'
     }
   }

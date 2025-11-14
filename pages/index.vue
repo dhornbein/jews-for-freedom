@@ -5,7 +5,7 @@
       <div class="pt-16 sm:pt-6 border-b sm:flex sm:flex-row-reverse justify-around items-center lg:justify-center
       border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark border-b-brand-background-light">
         <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto md:max-h-[40vh] lg:py-12 lg:pl-0 lg:pr-24 lg:m-0" />
-        <NuxtImg src="/img/shofar-arm.png"  class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh] lg:m-0" />
+        <NuxtImg src="/img/shofar-arm.png" alt="Shofar arm" class="mx-auto pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh] lg:m-0" />
       </div>
       <NavSmall class="my-6" />
     </section>
@@ -24,7 +24,7 @@
     <!-- Statement -->
     <section id="statement" class="px-8 py-8 sm:py-16 z-10 relative bg-white max-w-3xl mx-auto shadow-[6px_6px_0px_rgba(0,0,0,0.1)]">
       <div class="mx-auto max-w-prose">
-        <p class="text-sm text-gray-400 uppercase mb-4">Sign <span class="lowercase font-serif italic">the</span> Statement</p>
+        <p class="text-sm text-brand-text/60 uppercase mb-4">Sign <span class="lowercase font-serif italic">the</span> Statement</p>
         <article v-if="statement" class="prose prose-neutral max-w-none">
           <ContentRenderer :value="statement" :data="{}" />
         </article>

@@ -15,7 +15,7 @@ export function useNavLinks(): NavigationConfig {
     main: [
       { label: 'Sign', href: '#statement' },
       { label: 'About', href: '#about' },
-      { label: 'Partners', href: '#partners' },
+      { label: 'Partners', href: '#whos-involved' },
       { label: 'Share', href: '#share' }
     ],
     legal: [
