@@ -101,6 +101,15 @@ const formCustomizations = [
         textNode.textContent = ` ${optInStatement}`
       }
     }
+  },
+  
+  {
+    selector: '.international_link-wrap',
+    modify: (element: Element) => {
+      const span = element as HTMLLabelElement
+      // Hide the selected element
+      span.style.display = 'none'
+    }
   }
 ]
 
