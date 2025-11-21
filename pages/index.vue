@@ -48,7 +48,7 @@
         </article>
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
-      <div class="sm:grid sm:grid-cols-2 gap-6 p-6 max-w-screen-lg mx-auto">
+      <div class="sm:grid sm:grid-cols-2 gap-6 p-6 max-w-screen-lg mx-auto clear-both">
         <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name" class="last:col-span-2">
           <img v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-40 object-contain mx-auto mix-blend-multiply hover:mix-blend-normal" :class="partner.imgClass" />
         </a>
