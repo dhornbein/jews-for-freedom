@@ -2,13 +2,14 @@
   <div class="overflow-hidden">
     <!-- Hero / Introduction -->
     <section id="hero" class="border-t-4 border-t-brand-primary overflow-hidden">
-      <div class="pt-16 border-b border-brand-background-dark bg-gradient-to-b from-brand-background-light via-brand-background to-brand-background-dark border-b-brand-background-light
-          sm:pt-6 sm:flex sm:flex-row-reverse sm:justify-center sm:items-center
-          lg:justify-center">
-        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="mx-auto pb-4 sm:mx-0 md:max-h-[40vh] lg:py-12 lg:pl-0 lg:pr-24 lg:m-0" />
-        <NuxtImg src="/img/shofar-arm.png" alt="Shofar arm" class="mx-auto sm:mx-0 pt-8 sm:pt-0 mix-blend-color-burn md:max-h-[40vh] lg:m-0" />
+      <div class="hero mx-auto flex flex-col items-center justify-center
+                  sm:flex-row-reverse sm:justify-center
+                  sm:bg-[url('/img/hero-bg.jpg')] bg-no-repeat bg-center"
+                  style="background-size: cover;">
+        <NuxtImg src="/logo-square.png" alt="Jews for Freedom" class="p-4" />
+        <NuxtImg src="/img/shofar-arm.png" alt="Shofar arm" class="max-h-[60vh]" />
       </div>
-      <NavSmall class="my-6" />
+      <NavSmall class="py-6 px-2 border-t border-brand-background-light" />
     </section>
 
     <section id="introduction">
