@@ -13,6 +13,12 @@
   @apply hidden;
 }
 
+.can_embed #can_embed_form .international_link-wrap { display: none; }
+
+.can_embed #can_embed_form .control-label:not(.disabled) {
+  @apply mt-2;
+}
+
 .can_embed #can_embed_form_inner input[type="submit"] {
   @apply bg-brand-primary font-heading-normal font-bold text-2xl py-4 rounded hover:bg-brand-primary-dark;
 }

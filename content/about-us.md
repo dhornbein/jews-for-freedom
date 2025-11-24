@@ -12,7 +12,7 @@ Jews for Freedom is an initiative of **Powered By Faith**. Our partners include:
 
 - Bend the Arc - a partnership for justice
 - Collaborative for Jewish Organizing
-- the Jewish Social Justice Roundtable
+- Jewish Social Justice Roundtable
 - Jews United for Justice
 - The Religious Action Center of Reform Judaism
 
