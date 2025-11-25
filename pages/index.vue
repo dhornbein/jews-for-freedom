@@ -111,14 +111,14 @@ useSeoMeta({
   ogDescription: 'Mobilizing American Jews in defense of democratic values. Sign your name and share with your networks.',
   ogType: 'website',
   ogUrl: siteUrl,
-  ogImage: `${siteUrl}/og-image.png`,
+  ogImage: `${siteUrl}/og-image.jpg`,
   ogImageWidth: '1200',
   ogImageHeight: '630',
   ogImageAlt: 'Jews for Freedom - Defending Democratic Values',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Jews for Freedom — Sign the Statement',
   twitterDescription: 'Mobilizing American Jews in defense of democratic values. Sign your name and share with your networks.',
-  twitterImage: `${siteUrl}/og-image.png`,
+  twitterImage: `${siteUrl}/og-image.jpg`,
   twitterImageAlt: 'Jews for Freedom - Defending Democratic Values',
 })
 
