@@ -39,7 +39,8 @@ export default defineNuxtConfig({
         twitter: 'https://twitter.com/jewsforfreedom',
         instagram: 'https://instagram.com/jewsforfreedom',
         bluesky: 'https://bsky.app/profile/jewsforfreedom.com'
-      }
+      },
+      gaMeasurementId: process.env.NUXT_PUBLIC_GA_MEASUREMENT_ID || ''
     }
   }
 })

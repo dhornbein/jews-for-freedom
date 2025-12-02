@@ -49,7 +49,7 @@
         <p v-else class="text-sm text-brand-text/60">Loading…</p>
       </div>
       <div class="sm:grid sm:grid-cols-2 gap-6 p-6 max-w-screen-lg mx-auto clear-both">
-        <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name" class="last:col-span-2">
+            <a v-for="partner in partners" :key="partner.name" :href="partner.href" :aria-label="partner.name" class="last:col-span-2">
           <img v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="max-h-40 object-contain mx-auto mix-blend-multiply hover:mix-blend-normal" :class="partner.imgClass" />
         </a>
       </div>
@@ -64,7 +64,7 @@
           :long-text="statementText"
           :url="siteUrl"
         />
-        <nuxt-link to="/share" class="btn btn-block btn-outline-white mt-4 bg-brand-primary/60">Download Image</nuxt-link>
+        <nuxt-link to="/share" class="btn btn-block btn-outline-white mt-4 bg-brand-primary/60" @click="onSpreadCtaClick">Download Image</nuxt-link>
       </div>
     </section>
   </div>
@@ -72,6 +72,7 @@
 
 <script setup lang="ts">
 import FormEmbed from '~/components/FormEmbed.vue'
+import { useAnalytics } from '~/composables/useAnalytics'
 
 const { data: introduction } = await useAsyncData(() => queryCollection('content').path('/introduction').first())
 const { data: statement } = await useAsyncData(() => queryCollection('content').path('/statement').first())
@@ -103,6 +104,13 @@ const formCustomizations = [
     }
   }
 ]
+
+// Analytics wiring
+const analytics = useAnalytics()
+
+function onSpreadCtaClick() {
+  analytics.trackSpreadTheWord('download_image_cta')
+}
 
 useSeoMeta({
   title: 'Jews for Freedom',

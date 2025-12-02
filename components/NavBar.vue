@@ -4,7 +4,7 @@
     :class="isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'"
   >
     <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex h-14 items-center justify-between">
-      <a href="#hero" class="flex items-center gap-2 font-heading text-lg text-brand-text hover:text-brand-primary transition-all duration-300">
+      <a href="#hero" class="flex items-center gap-2 font-heading text-lg text-brand-text hover:text-brand-primary transition-all duration-300" @click="analytics.trackNavClick('logo', '#hero')">
         <NuxtImg 
           src="/logo-long.png" 
           alt="Jews for Freedom" 
@@ -13,11 +13,11 @@
       </a>
       <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-brand-text">
         <li v-for="link in nav.main" :key="link.href">
-          <a :href="link.href" class="hover:text-brand-primary">{{ link.label }}</a>
+          <a :href="link.href" class="hover:text-brand-primary" @click="analytics.trackNavClick(link.label.toLowerCase(), link.href)">{{ link.label }}</a>
         </li>
       </ul>
       <div class="flex items-center gap-3">
-        <a :href="nav.cta.href" class="btn btn-primary btn-sm">
+        <a :href="nav.cta.href" class="btn btn-primary btn-sm" @click="analytics.trackNavClick('cta', nav.cta.href)">
             <span class="block md:hidden">{{ nav.cta.label.split(' ')[0] }}</span>
             <span class="hidden md:block">{{ nav.cta.label }}</span>
         </a>
@@ -27,7 +27,10 @@
 </template>
 
 <script setup lang="ts">
+import { useAnalytics } from '~/composables/useAnalytics'
+
 const nav = useNavLinks()
+const analytics = useAnalytics()
 
 const isScrolled = ref(false)
 

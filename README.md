@@ -38,6 +38,20 @@ Start the development server on `http://localhost:3000`:
 npm run dev
 ```
 
+### Google Analytics (GA4)
+
+To enable GA4 locally, set your Measurement ID (e.g., `G-XXXXXXX`) in the `.env` file before starting Nuxt:
+
+```env
+NUXT_PUBLIC_GA_MEASUREMENT_ID=G-HDW00V2EQ6
+```
+
+Notes:
+- The GA plugin lives at `plugins/ga.client.ts` and initializes only when `NUXT_PUBLIC_GA_MEASUREMENT_ID` is set.
+- It disables automatic `page_view` and emits `page_view` on route changes for SPA accuracy.
+- Verify with Tag Assistant: https://tagassistant.google.com/ (works with `http://localhost:3000`).
+- In production add `NUXT_PUBLIC_GA_MEASUREMENT_ID` in the environment settings.
+
 ## Production
 
 Build the application for production (static site generation):
